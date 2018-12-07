@@ -1,4 +1,0 @@
-bundle exec middleman server
-
-Coinbase Docs: https://developers.coinbase.com/api/v2
-Stripe Docs: https://stripe.com/docs/api
