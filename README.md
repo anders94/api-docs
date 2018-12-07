@@ -20,8 +20,8 @@ Initialize
 ----------
 
 ```shell
-git clone https://github.com/circlefin/polo-api-docs
-cd polo-api-docs/
+git clone https://github.com/poloniex/api-docs
+cd api-docs/
 bundle install
 ```
 
