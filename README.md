@@ -42,3 +42,12 @@ Edits
 
 All content lives in [source/](source/). Each section is an included file in the [source/includes/](source/includes/)
 directory. Once you have edited a file, reloading the browser will show the incorporated changes.
+
+Deploy
+------
+
+To deploy a set of flat files:
+
+```bundle exec middleman build --clean```
+
+Everything should end up in the `build/` directory.
