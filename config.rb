@@ -38,6 +38,12 @@ end
 activate :relative_assets
 set :relative_links, true
 
+configure :development do
+  activate :google_analytics do |ga|
+    ga.tracking_id = false
+  end
+end
+
 # Build Configuration
 configure :build do
   # If you're having trouble with Middleman hanging, commenting
@@ -47,6 +53,9 @@ configure :build do
   # activate :relative_assets
   # activate :asset_hash
   # activate :gzip
+  activate :google_analytics do |ga|
+    ga.tracking_id = 'UA-131188312-1'
+  end
 end
 
 # Deploy Configuration
