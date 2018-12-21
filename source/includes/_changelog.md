@@ -2,7 +2,7 @@
 
 Recent changes and additions to the Poloniex API.
 
-## 2018-12-03 API documentation overhaul
+## 2018-12-27 API documentation overhaul
 
 Refreshed look & feel and adds example code via the shell.
 
