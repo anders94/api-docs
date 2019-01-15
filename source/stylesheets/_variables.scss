@@ -92,6 +92,23 @@ $nav-footer-border-color: #666 !default;
 $search-box-border-color: #666 !default;
 
 
+.btn {
+  display: inline-block;
+  border-radius: 4px;
+  border: none;
+  background-color: #068485;
+  color: #ffffff !important;
+  text-transform: uppercase;
+  height: 50px;
+  line-height: 50px;
+  font-size: 14px;
+  letter-spacing: .13em;
+  text-align: center;
+  padding: 0 20px;
+  text-decoration: none;
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // INTERNAL
 ////////////////////////////////////////////////////////////////////////////////

@@ -6,7 +6,7 @@ language_tabs:
 
 includes:
   - introduction
-  - authentication
+  - getting-started
   - http
   - http-public
   - http-private
