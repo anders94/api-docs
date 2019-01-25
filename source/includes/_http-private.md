@@ -11,7 +11,7 @@ All calls to the trading API are sent via HTTP using POST parameters to https://
 * _Key_ - Your API key.
 * _Sign_ - The query's POST data signed by your key's "secret" according to the HMAC-SHA512 method.
 
-Additionally, all queries must include a "nonce" POST parameter. The nonce parameter is an integer which must always be greater than the previous nonce used and does not need to increase by one. Using the epoch in milliseconds is an easy choice here but be careful about time syncronization if using the same API key across multiple servers.
+Additionally, all queries must include a "nonce" POST parameter. The nonce parameter is an integer which must always be greater than the previous nonce used and does not need to increase by one. Using the epoch in milliseconds is an easy choice here but be careful about time synchronization if using the same API key across multiple servers.
 
 All responses from the trading API are in JSON format. In the event of an error, the response will always be of the following format:
 
@@ -568,7 +568,7 @@ Field | Description
 ------|------------
 globalTradeID | The globally unique identifier of this trade.
 tradeID | The identifier of this trade unique only within this trading pair.
-currencyPair | The major and minor currencies thich define this market.
+currencyPair | The major and minor currencies which define this market.
 type | Denotes a 'buy' or a 'sell' execution.
 rate | The rate at which this trade executed.
 amount | The amount transacted in this trade.
@@ -988,7 +988,7 @@ toAccount | The account to which this value should be moved.
 Field | Description
 ------|------------
 success | The success or failure message for this transfer.
-message | A human readable message sumarizing this transfer.
+message | A human readable message summarizing this transfer.
 
 ## returnMarginAccountSummary
 
@@ -1065,7 +1065,7 @@ amount | The amount of currency to buy in minor currency units.
 Field | Description
 ------|------------
 orderNumber | The newly created order number.
-resultingTrades | An array of trades immediatly filled by this offer, if any.
+resultingTrades | An array of trades immediately filled by this offer, if any.
 message | A human-readable message summarizing the activity.
 
 ## marginSell
@@ -1105,7 +1105,7 @@ amount | The amount of currency to sell in minor currency units.
 Field | Description
 ------|------------
 orderNumber | The newly created order number.
-resultingTrades | An array of trades immediatly filled by this offer, if any.
+resultingTrades | An array of trades immediately filled by this offer, if any.
 message | A human-readable message summarizing the activity.
 
 ## getMarginPosition
@@ -1324,7 +1324,7 @@ Returns your open loan offers for each currency.
 
 Field | Description
 ------|------------
-id | The identification number of ths offer.
+id | The identification number of this offer.
 rate | The rate in percent per day to charge for this loan.
 amount | The total amount offered for this loan.
 duration | The maximum number of days offered for this loan.

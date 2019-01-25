@@ -6,7 +6,7 @@ The public HTTP API allows read access to public market data.
 Public HTTP URL: `https://poloniex.com/public`
 </aside>
 
-There are seven public methods, all of which take HTTP GET requests and return output in JSON format. No authentication is necessary but you must not excessivly use any API endpoint.
+There are seven public methods, all of which take HTTP GET requests and return output in JSON format. No authentication is necessary but you must not excessively use any API endpoint.
 
 ## returnTicker
 
