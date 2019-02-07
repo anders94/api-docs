@@ -199,7 +199,7 @@ total | The total price in base units for this trade.
 ## returnChartData
 
 ```shell
-curl "https://poloniex.com/public?command=returnChartData&currencyPair=BTC_XMR&start=1405699200&end=9999999999&period=14400"
+curl "https://poloniex.com/public?command=returnChartData&currencyPair=BTC_XMR&start=1546300800&end=1546646400&period=14400"
 ```
 
 > Example output:
@@ -241,6 +241,17 @@ curl "https://poloniex.com/public?command=returnChartData&currencyPair=BTC_XMR&s
 ```
 
 Returns candlestick chart data. Required GET parameters are "currencyPair", "period" (candlestick period in seconds; valid values are 300, 900, 1800, 7200, 14400, and 86400), "start", and "end". "Start" and "end" are given in UNIX timestamp format and used to specify the date range for the data returned. Fields include:
+
+### Input Fields
+
+Field | Description
+------------|------------
+currencyPair | The currency pair of the market being requested.
+period | Candlestick period in seconds. Valid values are 300, 900, 1800, 7200, 14400, and 86400.
+start | The start of the window in seconds since the unix epoch.
+end | The end of the window in seconds since the unix epoch.
+
+### Output Fields
 
 Field | Description
 ------|------------
