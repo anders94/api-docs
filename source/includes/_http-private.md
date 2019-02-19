@@ -267,7 +267,7 @@ amount | The total value of the deposit. (network fees will not be included in t
 confirmations | The total number of confirmations for this deposit.
 txid | The blockchain transaction ID of this deposit.
 timestamp | The timestamp in UNIX timestamp format of when this deposit was first noticed.
-status | The current status of this deposit. (either `pending` or `complete`)
+status | The current status of this deposit. (either `PENDING` or `COMPLETE`)
 
 ### Withdrawal Output Fields
 
@@ -279,7 +279,7 @@ address | The address to which the withdrawal was made.
 amount | The total amount withdrawn including the fee.
 fee | The fee paid to the exchange for this withdrawal.
 timestamp | The Unix timestamp of the withdrawal.
-status | The status of the withdrawal (one of `pending`, `awaiting approval`, `complete` or `complete error`) and optionally the transaction ID of the withdrawal.
+status | The status of the withdrawal (one of `PENDING`, `AWAITING APPROVAL`, `COMPLETE` or `COMPLETE ERROR`) and optionally the transaction ID of the withdrawal.
 ipAddress | The IP address which initiated the withdrawal request.
 
 ## returnOpenOrders
