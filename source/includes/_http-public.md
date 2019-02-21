@@ -134,7 +134,18 @@ curl "https://poloniex.com/public?command=returnOrderBook&currencyPair=BTC_ETH&d
      seq: 51055117 } }
 ```
 
-Returns the order book for a given market, as well as a sequence number used by websockets for synchronization of book updates and an indicator specifying whether the market is frozen. You may set currencyPair to "all" to get the order books of all markets.
+Returns the order book for a given market, as well as a sequence number used by websockets for synchronization of book updates and an indicator specifying whether the market is frozen. You may set currencyPair to "all" to get the order books of all markets. 
+
+<aside class="notice">
+Consider using the <a href="#websocket-api">Websocket API</a> over REST if you are looking for fresh and full order book depth.
+</aside>
+
+Request Parameter | Description  
+------|------------
+currencyPair | A pair like `BTC_ETH` or `all`
+depth (optional) | Default depth is `50`. Max depth is `100`.
+
+
 
 Field | Description
 ------|------------
