@@ -1032,11 +1032,11 @@ currentMargin | The current margin ratio.
 
 ```shell
 # Note: set the nonce to the current milliseconds. For example: date +%s00000
-echo -n "command=marginBuy&currencyPair=BTC_ETH&rate=0.002&amount=20&&nonce=154264078495300" | \
+echo -n "command=marginBuy&currencyPair=BTC_ETH&rate=0.0035&amount=20&&nonce=154264078495300" | \
 openssl sha512 -hmac $API_SECRET
 
 curl -X POST \
-     -d "command=marginBuy&currencyPair=BTC_ETH&rate=0.002&amount=20&nonce=154264078495300" \
+     -d "command=marginBuy&currencyPair=BTC_ETH&rate=0.0035&amount=20&nonce=154264078495300" \
      -H "Key: 7BCLAZQZ-HKLK9K6U-3MP1RNV9-2LS1L33J" \
      -H "Sign: 2a7849ecf...ae71161c8e9a364e21d9de9" \
      https://poloniex.com/tradingApi
@@ -1050,14 +1050,15 @@ curl -X POST \
   message: 'Margin order placed.' }
 ```
 
-Places a margin buy order in a given market. Required POST parameters are "currencyPair", "rate", and "amount". You may optionally specify a maximum lending rate using the "lendingRate" parameter. If successful, the method will return the order number and any trades immediately resulting from your order.
+Places a margin buy order in a given market. Required POST parameters are "currencyPair", "rate", and "amount". You may optionally specify a maximum lending rate using the "lendingRate" parameter. (the default "lendingRate" value is 0.02 which stands for 2% per day) Note that "rate" * "amount" must be > 0.02 when creating or expanding a market. If successful, the method will return the order number and any trades immediately resulting from your order.
 
 ### Input Fields
 
 Field | Description
 ------|------------
-currencyPair | The major and minor currency that define this market.
-rate | The interest rate you are willing to accept in percentage per day.
+currencyPair | The base and quote currency that define this market.
+rate | The number of base currency units to purchase one quote currency unit.
+lendingRate | The interest rate you are willing to accept per day. (default is 0.02 which stands for 2% per day)
 amount | The amount of currency to buy in minor currency units.
 
 ### Output Fields
@@ -1072,11 +1073,11 @@ message | A human-readable message summarizing the activity.
 
 ```shell
 # Note: set the nonce to the current milliseconds. For example: date +%s00000
-echo -n "command=marginSell&currencyPair=BTC_ETH&rate=0.002&amount=20&&nonce=154264078495300" | \
+echo -n "command=marginSell&currencyPair=BTC_ETH&rate=0.0035&amount=20&&nonce=154264078495300" | \
 openssl sha512 -hmac $API_SECRET
 
 curl -X POST \
-     -d "command=marginSell&currencyPair=BTC_ETH&rate=0.002&amount=20&nonce=154264078495300" \
+     -d "command=marginSell&currencyPair=BTC_ETH&rate=0.0035&amount=20&nonce=154264078495300" \
      -H "Key: 7BCLAZQZ-HKLK9K6U-3MP1RNV9-2LS1L33J" \
      -H "Sign: 2a7849ecf...ae71161c8e9a364e21d9de9" \
      https://poloniex.com/tradingApi
@@ -1090,14 +1091,15 @@ curl -X POST \
   message: 'Margin order placed.' }
 ```
 
-Places a margin sell order in a given market. Required POST parameters are "currencyPair", "rate", and "amount". You may optionally specify a maximum lending rate using the "lendingRate" parameter. If successful, the method will return the order number and any trades immediately resulting from your order.
+Places a margin sell order in a given market. Required POST parameters are "currencyPair", "rate", and "amount". You may optionally specify a maximum lending rate using the "lendingRate" parameter. (the default "lendingRate" value is 0.02 which stands for 2% per day) Note that "rate" * "amount" must be > 0.02 when creating or expanding a market. If successful, the method will return the order number and any trades immediately resulting from your order.
 
 ### Input Fields
 
 Field | Description
 ------|------------
-currencyPair | The major and minor currency that define this market.
-rate | The interest rate you are willing to accept in percentage per day.
+currencyPair | The base and quote currency that define this market.
+rate | The number of base currency units to purchase one quote currency unit.
+lendingRate | The interest rate you are willing to accept per day. (default is 0.02 which stands for 2% per day)
 amount | The amount of currency to sell in minor currency units.
 
 ### Output Fields

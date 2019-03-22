@@ -2,6 +2,10 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2019-03-22 Margin parameters clarified.
+
+In both "marginBuy" and "marginSell", the "rate" parameter definition has been fixed. Additionally, the optional "lendingRate" parameter has been defined and a note was added about the default value and minimum setting.
+
 ## 2018-12-27 API documentation overhaul
 
 Refreshed look & feel and adds example code via the shell.
