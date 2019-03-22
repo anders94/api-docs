@@ -1050,14 +1050,15 @@ curl -X POST \
   message: 'Margin order placed.' }
 ```
 
-Places a margin buy order in a given market. Required POST parameters are "currencyPair", "rate", and "amount". You may optionally specify a maximum lending rate using the "lendingRate" parameter. If successful, the method will return the order number and any trades immediately resulting from your order.
+Places a margin buy order in a given market. Required POST parameters are "currencyPair", "rate", and "amount". You may optionally specify a maximum lending rate using the "lendingRate" parameter. (the default "lendingRate" value is 0.02) Note that "rate" * "amount" must be > 0.02 when creating or expanding a market. If successful, the method will return the order number and any trades immediately resulting from your order.
 
 ### Input Fields
 
 Field | Description
 ------|------------
 currencyPair | The major and minor currency that define this market.
-rate | The interest rate you are willing to accept in percentage per day.
+rate | The rate to purchase one major unit for this trade.
+lendingRate | The interest rate you are willing to accept in percentage per day. (default is 0.02)
 amount | The amount of currency to buy in minor currency units.
 
 ### Output Fields
@@ -1090,14 +1091,15 @@ curl -X POST \
   message: 'Margin order placed.' }
 ```
 
-Places a margin sell order in a given market. Required POST parameters are "currencyPair", "rate", and "amount". You may optionally specify a maximum lending rate using the "lendingRate" parameter. If successful, the method will return the order number and any trades immediately resulting from your order.
+Places a margin sell order in a given market. Required POST parameters are "currencyPair", "rate", and "amount". You may optionally specify a maximum lending rate using the "lendingRate" parameter. (the default "lendingRate" value is 0.02) Note that "rate" * "amount" must be > 0.02 when creating or expanding a market. If successful, the method will return the order number and any trades immediately resulting from your order.
 
 ### Input Fields
 
 Field | Description
 ------|------------
 currencyPair | The major and minor currency that define this market.
-rate | The interest rate you are willing to accept in percentage per day.
+rate | The rate to purchase one major unit for this trade.
+lendingRate | The interest rate you are willing to accept in percentage per day. (default is 0.02)
 amount | The amount of currency to sell in minor currency units.
 
 ### Output Fields
