@@ -45,3 +45,12 @@ Transfer some funds into your account.
 
 - Deposit cryptocurrency you already own
 - Tokenize some USDC using a traditional bank account and deposit the USDC into Poloniex. More information available at <a href="https://support.usdc.circle.com/hc/en-us">the USDC Help Center</a>.
+
+### Minimize Latency
+
+If you will be performing high-frequency trading, you may wish to locate your bots as close to our servers as possible. As Poloniex uses Cloudflare for all requests, you can minimize network latency by positioning your client near the Cloudflare gateway in Ashburn, VA, United States. You can identify which Cloudflare gateway your client is accessing by running this command on the same machine as your bot:
+
+```curl -s https://www.cloudflare.com/cdn-cgi/trace```
+
+Cloudflare’s Ashburn data center will return a “colo” field of “IAD”. If you get a different “colo” value, you can look up the location at https://www.cloudflarestatus.com.
+
