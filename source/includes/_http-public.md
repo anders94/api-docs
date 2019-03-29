@@ -58,7 +58,7 @@ isFrozen | Indicates if this market is currently trading or not.
 high24hr | The highest execution price for this pair within the last 24 hours.
 low24hr | The lowest execution price for this pair within the last 24 hours.
 
-## return24Volume
+## return24hVolume
 
 ```shell
 curl "https://poloniex.com/public?command=return24hVolume"
