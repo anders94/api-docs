@@ -2,6 +2,10 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2019-03-29 TLS 1.2 or greater required.
+
+As of April 15, 2019, TLS version 1.2 or greater is required.
+
 ## 2019-03-28 Add minimize latency instructions.
 
 Instructions on how to minimize latency have been added to the Getting Started section.

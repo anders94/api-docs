@@ -22,7 +22,7 @@ As the name implies, your secret must remain private! If you suspect your key ha
 # milliseconds. (available with date +%s00000)
  echo -n "command=returnBalances&nonce=154264078495300" | \
 openssl sha512 -hmac $API_SECRET
- # You will use this signature as a header in your request.
+# You will use this signature as a header in your request.
 # For example:
  curl -X POST \
      -d "command=returnBalances&nonce=154264078495300" \
@@ -30,6 +30,10 @@ openssl sha512 -hmac $API_SECRET
      -H "Sign: 2a7849ecf...ae71161c8e9a364e21d9de9" \
      https://poloniex.com/tradingApi
 ```
+
+<aside class="info">
+TLS 1.2 or greater is required.
+</a></aside>
 
 <aside class="info">
 The public endpoint does not require API keys or nonces. So if you are only interested in the public endpoints, skip ahead <a href="/#public-http-api-methods">here.
