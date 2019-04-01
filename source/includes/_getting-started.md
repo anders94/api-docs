@@ -56,5 +56,5 @@ If you will be performing high-frequency trading, you may wish to locate your bo
 
 ```curl -s https://www.cloudflare.com/cdn-cgi/trace```
 
-Cloudflare’s Ashburn data center will return a “colo” field of “IAD”. If you get a different “colo” value, you can look up the location at https://www.cloudflarestatus.com.
+Cloudflare’s Ashburn data center will return a “colo” field of “IAD”. If you get a different “colo” value, you can look up the location at <a href="https://www.cloudflarestatus.com" target="_blank">https://www.cloudflarestatus.com</a>.
 
