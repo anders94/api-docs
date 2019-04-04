@@ -183,14 +183,16 @@ curl -X POST \
 
 ```json
 { deposits: 
-   [ { currency: 'BTC',
+   [ { depositNumber: 7397520,
+       currency: 'BTC',
        address: '131rdg5Rzn6BFufnnQaHhVa5ZtRU1J2EZR',
        amount: '0.06830697',
        confirmations: 1,
        txid: '3a4b9b2404f6e6fb556c3e1d46a9752f5e70a93ac1718605c992b80aacd8bd1d',
        timestamp: 1506005439,
        status: 'COMPLETE' },
-     { currency: 'BCH',
+     { depositNumber: 7397521,
+       currency: 'BCH',
        address: '1FhCkdKeMGa621mCpAtFYzeVfUBnHbooLj',
        amount: '10.00000000',
        confirmations: 5,
@@ -198,14 +200,16 @@ curl -X POST \
        timestamp: 1508436102,
        status: 'COMPLETE' },
 ...
-     { currency: 'BTC',
+     { depositNumber: 7397519,
+       currency: 'BTC',
        address: '131rdg5Rzn6BFufnnQaHhVa5ZtRU1J2EZR',
        amount: '1.49998357',
        confirmations: 1,
        txid: 'b05bdec7430a56b5a5ed34af4a31a54859dda9b7c88a5586bc5d6540cdfbfc7a',
        timestamp: 1537304458,
        status: 'COMPLETE' },
-     { currency: 'ETH',
+     { depositNumber: 7397518,
+       currency: 'ETH',
        address: '0xb7e033598cb94ef5a35349316d3a2e4f95f308da',
        amount: '29.99825341',
        confirmations: 53,
@@ -269,6 +273,7 @@ end | The end date of the range window in UNIX timestamp format.
 
 Field | Description
 ------|------------
+depositNumber | The unique Poloniex specific deposit ID for this deposit.
 currency | The currency of this deposit.
 address | The address to which this deposit was sent.
 amount | The total value of the deposit. (network fees will not be included in this)
