@@ -220,7 +220,9 @@ curl -X POST \
        fee: '0.01000000',
        timestamp: 1506010932,
        status: 'COMPLETE: 0x423346392f82ac16e8c2604f2a604b7b2382d0e9d8030f673821f8de4b5f5a30',
-       ipAddress: '1.2.3.4' },
+       ipAddress: '1.2.3.4',
+       paymentID: null
+     },
      { withdrawalNumber: 7704882,
        currency: 'ETH',
        address: '0x00c90335F92FfcD26C8c915c79d7aB424454B7c7',
@@ -228,7 +230,9 @@ curl -X POST \
        fee: '0.00500000',
        timestamp: 1507908127,
        status: 'COMPLETE: 0xbd4da74e1a0b81c21d056c6f58a5b306de85d21ddf89992693b812bb117eace4',
-       ipAddress: '1.2.3.4' },
+       ipAddress: '1.2.3.4',
+       paymentID: null 
+     },
 ...
      { withdrawalNumber: 11967216,
        currency: 'ZRX',
@@ -237,7 +241,9 @@ curl -X POST \
        fee: '5.00000000',
        timestamp: 1538419390,
        status: 'COMPLETE: 0x52f9e37f29944f20b624df4d7a0ea5a09173e6ea048d49fb05c29585f1d74032',
-       ipAddress: '1.2.3.4' },
+       ipAddress: '1.2.3.4',
+       paymentID: null 
+     },
      { withdrawalNumber: 12017755,
        currency: 'STR',
        address: 'GACNWS3R4FJUMHLDNMFGUQZD33FBRE4IODAPK5G7AVX7S2VEJRT2XXHQ',
@@ -245,7 +251,9 @@ curl -X POST \
        fee: '0.00001000',
        timestamp: 1539709673,
        status: 'COMPLETE: 2d27ae26fa9c70d6709e27ac94d4ce2fde19b3986926e9f3bfcf3e2d68354ec5',
-       ipAddress: '1.2.3.4' } ] }
+       ipAddress: '1.2.3.4',
+       paymentID: 'MEMOTEXT'
+     } ] }
 ```
 
 Returns your deposit and withdrawal history within a range window, specified by the "start" and "end" POST parameters, both of which should be given as UNIX timestamps.
@@ -281,6 +289,7 @@ fee | The fee paid to the exchange for this withdrawal.
 timestamp | The Unix timestamp of the withdrawal.
 status | The status of the withdrawal (one of `PENDING`, `AWAITING APPROVAL`, `COMPLETE` or `COMPLETE ERROR`) and optionally the transaction ID of the withdrawal.
 ipAddress | The IP address which initiated the withdrawal request.
+paymentID | The paymentID specified for this withdrawal. If none were specified, the field will be `null`.
 
 ## returnOpenOrders
 
