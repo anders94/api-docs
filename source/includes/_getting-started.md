@@ -41,7 +41,7 @@ The public endpoint does not require API keys or nonces. So if you are only inte
 
 Private HTTP endpoints are authenticated using HMAC-SHA512 signed POST request.
 
-Private HTTP endpoints also require a nonce, which must be an integer greater than the previous nonce used. There is no requirement that nonces increase by a specific amount, so the current epoch time in milliseconds is an easy choice. Note that each API key has its own nonce tracking.
+Private HTTP endpoints also require a nonce, which must be an integer greater than the previous nonce used. There is no requirement that nonces increase by a specific amount, so the current epoch time in milliseconds is an easy choice. As each API key has its own nonce tracking, using a different keys for each client process can greatly simplify nonce management.
 
 ### Deposit
 
