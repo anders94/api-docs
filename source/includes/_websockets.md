@@ -40,7 +40,7 @@ To receive updates from a channel you must subscribe to it. To subscribe to a pu
 
 `{ "command": "subscribe", "channel": "<channel id>" }`
 
-To subscribe to a private channel, the parameters described in the authentication section are required in the subscription message. Just like the trading API, an integer nonce must be chosen that is greater than the previous nonce used; for this purpose the current epoch time in milliseconds is a reasonable choice. Note that each API key has its own nonce tracking. If the chosen nonce is 1234, provide a "payload" parameter consisting of nonce=1234, a "key" parameter with your API key, and a "sign" parameter with the HMAC-SHA512 signature of the payload signed by your secret:
+To subscribe to a private channel, the parameters described in the authentication section are required in the subscription message. Just like the trading API, an integer nonce must be chosen that is greater than the previous nonce used; for this purpose the current epoch time in milliseconds is a reasonable choice. As each API key has its own nonce tracking, using a different keys for each client process can greatly simplify nonce management. If the chosen nonce is 1234, provide a "payload" parameter consisting of nonce=1234, a "key" parameter with your API key, and a "sign" parameter with the HMAC-SHA512 signature of the payload signed by your secret:
 
 `{ "command": "subscribe", "channel": "<channel id>", "key": "<your API key>", "payload": "nonce=<epoch ms>", "sign": "<hmac_sha512(secret).update("nonce=<epoch ms>").hexdigest()>" }`
 
