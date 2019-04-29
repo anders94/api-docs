@@ -22,7 +22,7 @@ As the name implies, your secret must remain private! If you suspect your key ha
 # milliseconds. (available with date +%s00000)
  echo -n "command=returnBalances&nonce=154264078495300" | \
 openssl sha512 -hmac $API_SECRET
- # You will use this signature as a header in your request.
+# You will use this signature as a header in your request.
 # For example:
  curl -X POST \
      -d "command=returnBalances&nonce=154264078495300" \
@@ -30,6 +30,10 @@ openssl sha512 -hmac $API_SECRET
      -H "Sign: 2a7849ecf...ae71161c8e9a364e21d9de9" \
      https://poloniex.com/tradingApi
 ```
+
+<aside class="info">
+TLS 1.2 or greater is required.
+</a></aside>
 
 <aside class="info">
 The public endpoint does not require API keys or nonces. So if you are only interested in the public endpoints, skip ahead <a href="/#public-http-api-methods">here.
@@ -45,3 +49,12 @@ Transfer some funds into your account.
 
 - Deposit cryptocurrency you already own
 - Tokenize some USDC using a traditional bank account and deposit the USDC into Poloniex. More information available at <a href="https://support.usdc.circle.com/hc/en-us">the USDC Help Center</a>.
+
+### Minimize Latency
+
+If you will be performing high-frequency trading, you may wish to locate your bots as close to our servers as possible. As Poloniex uses Cloudflare for all requests, you can minimize network latency by positioning your client near the Cloudflare gateway in Ashburn, VA, United States. You can identify which Cloudflare gateway your client is accessing by running this command on the same machine as your bot:
+
+```curl -s https://www.cloudflare.com/cdn-cgi/trace```
+
+Cloudflare’s Ashburn data center will return a “colo” field of “IAD”. If you get a different “colo” value, you can look up the location at <a href="https://www.cloudflarestatus.com" target="_blank">https://www.cloudflarestatus.com</a>.
+
