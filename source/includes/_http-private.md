@@ -434,14 +434,16 @@ curl -X POST \
     type: 'buy',
     rate: '0.03117266',
     amount: '0.00000652',
-    total: '0.00000020' },
+    total: '0.00000020',
+    orderNumber: '104768235093' },
   { globalTradeID: 394700815,
     tradeID: 45210353,
     date: '2018-10-23 18:01:08',
     type: 'buy',
     rate: '0.03116000',
     amount: '5.93292717',
-    total: '0.18487001' },
+    total: '0.18487001',
+    orderNumber: '104768235092' },
 ...
   { globalTradeID: 394699047,
     tradeID: 45210256,
@@ -449,14 +451,16 @@ curl -X POST \
     type: 'sell',
     rate: '0.03114533',
     amount: '0.01934000',
-    total: '0.00060235' },
+    total: '0.00060235',
+    orderNumber: '104768235091' },
   { globalTradeID: 394698946,
     tradeID: 45210255,
     date: '2018-10-23 17:28:55',
     type: 'sell',
     rate: '0.03114126',
     amount: '0.00018753',
-    total: '0.00000583' } ]
+    total: '0.00000583',
+    orderNumber: '104768235090' } ]
 ```
 
 > Example output for all markets:
@@ -672,7 +676,9 @@ curl -X POST \
        rate: '0.0002',
        total: '0.0006',
        tradeID: '251834',
-       type: 'buy' } ] }
+       type: 'buy' } ],
+  fee: '0.01000000',
+  currencyPair: 'BTC_ETH' }
 ```
 
 Places a limit buy order in a given market. Required POST parameters are "currencyPair", "rate", and "amount". If successful, the method will return the order number.
@@ -702,6 +708,8 @@ rate | The rate in base units of this order.
 total | The total value of this order.
 tradeID | The identifier for this trade.
 type | Designates a buy or a sell order. (always 'buy' in this case)
+fee | The fee multiplier for this trade.
+currencyPair | The market to which this order belongs.
 
 ## sell
 
@@ -727,7 +735,9 @@ curl -X POST \
        rate: '10.0',
        total: '10.0',
        tradeID: '251869',
-       type: 'sell' } ] }
+       type: 'sell' } ],
+  fee: '0.01000000',
+  currencyPair: 'BTC_ETH' }
 ```
 
 Places a sell order in a given market. Required POST parameters are "currencyPair", "rate", and "amount". If successful, the method will return the order number.
@@ -757,6 +767,8 @@ rate | The rate in base units of this order.
 total | The total value of this order.
 tradeID | The identifier for this trade.
 type | Designates a buy or a sell order. (always 'sell' in this case)
+fee | The fee multiplier for this trade.
+currencyPair | The market to which this order belongs.
 
 ## cancelOrder
 
