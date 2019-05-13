@@ -2,10 +2,10 @@
 
 Recent changes and additions to the Poloniex API.
 
-## 2019-05-09 Additional properties to channel 1000 t message
+## 2019-05-09 Additional fields to channel 1000 t message
 Channel 1000 `t` message has been appended to include the total `fee` and `date` at the end of the response respectively. 
 
-## 2019-05-08 Additional properties to buy and sell response
+## 2019-05-08 Additional fields to buy and sell response
 The buy and sell response will now include `currencyPair` and `fee` multiplier.
 
 ## 2019-04-04 Additional fields to returnDepositsWithdrawals response.
