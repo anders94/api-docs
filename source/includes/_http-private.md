@@ -808,6 +808,40 @@ success | A boolean indication of the success or failure of this operation.
 amount | The remaning unfilled amount that was canceled in this operation.
 message | A human readable description of the result of the action.
 
+## cancelAllOrders
+
+```shell
+# Note: set the nonce to the current milliseconds. For example: date +%s00000
+echo -n "command=cancelAllOrders&nonce=154264078495300" | \
+openssl sha512 -hmac $API_SECRET
+
+curl -X POST \
+     -d "command=cancelAllOrders&nonce=154264078495300" \
+     -H "Key: 7BCLAZQZ-HKLK9K6U-3MP1RNV9-2LS1L33J" \
+     -H "Sign: 2a7849ecf...ae71161c8e9a364e21d9de9" \
+     https://poloniex.com/tradingApi
+```
+
+> Example output:
+
+```json
+[2345678, 2345679]
+```
+
+Cancels all orders you have placed in a given market or all orders if no market is provided. Optional POST parameter is "currencyPair". If successful, the method will return a json array of orderNumbers for the orders that were canceled.
+
+### Input Fields
+
+Field | Description
+------|------------
+currencyPair | The base and quote currency that define this market.
+
+### Output
+
+ | Description
+-|------------
+ | array of orderIds for canceled orders.
+
 ## moveOrder
 
 ```shell
