@@ -76,7 +76,7 @@ ws wss://api2.poloniex.com
 < [1010]
 < [1000,"",[["n",225,807230187,0,"1000.00000000","0.10000000","2018-11-07 16:42:42"],["b",267,"e","-0.10000000"]]]
 < [1010]
-< [1000,"",[["o",807230187,"0.00000000", "f"],["b",267,"e","0.10000000"]]]
+< [1000,"",[["o",807230187,"0.00000000"],["b",267,"e","0.10000000"]]]
 ```
 
 <aside class="notice">
@@ -99,21 +99,9 @@ A given message may contain multiple updates, multiple types of updates, and mul
 
 * `b` updates represent an available balance update. They are in the format `["b", <currency id>, "<wallet>", "<amount>"]`. Currency IDs may be found in the reference table, or using the returnCurrencies REST call. The wallet can be `e` (exchange), `m` (margin), or `l` (lending). Thus, a `b` update representing a deduction of 0.06 BTC from the exchange wallet will look like `["b", 28, "e", "-0.06000000"]`.
 * `n` updates represent a newly created limit order. They are in the format `["n", <currency pair id>, <order number>, <order type>, "<rate>", "<amount>", "<date>"]`. Currency pair IDs are described here, the order type can either be `0` (sell) or `1` (buy), and the date is formatted according to the format string `Y-m-d H:i:s`. Thus, an `n` update representing a buy order for 2 ETH at rate 0.03 BTC per ETH will look like `["n", 148, 6083059, 1, "0.03000000", "2.00000000", "2018-09-08 04:54:09"]`.
-* `o` updates represent an order update. They are in the format `["o", <order number>, "<new amount>", "<order type>"]`.
-Consult the below table for the interpretation of order type and amount. The amount is guaranteed to be greater than or equal to `0.00000000`
-   and order type is one of: `f`, `s`, or `c`, corresponding to a fill, self-trade, or cancelled order, respectively.
-  
-     Order type  | Amount   |  Interpretation
-    ---|---|---|
-     f  | \> 0.00000000  | partially filled order
-     f  | = 0.00000000  | completely filled order
-     c  | \> 0.00000000  | partially cancelled order
-     c  | = 0.00000000  | completely cancelled order
-     s  | \> 0.00000000  | partially filled self-trade
-     s  | = 0.00000000  | completely filled self-trade
-    Thus, an `o` update representing a partially filled limit order with a new amount of 1.5 will look like:
-      `["o", 6083059, "1.50000000", "f"]`.
-
+* `o` updates represent an order update. They are in the format `["o", <order number>, "<new amount>"]`
+  A cancelled or completely filled order is denoted with a "0.00000000" amount. Thus, an `o` update representing a partially filled limit order with a new amount of 1.5 will look like:
+  `["o", 6083059, "1.50000000"]`
 * `t` updates represent a trade notification. They are in the format `["t", <trade ID>, "<rate>", "<amount>", "<fee multiplier>", <funding type>, <order number>, <total fee>, <date>]`. The fee multiplier is the fee schedule applied to the trade (for instance, if a trade had a trading fee of 0.25%, the fee multiplier will be '0.00250000'). The funding type represents the funding used for the trade, and may be `0` (exchange wallet), `1` (borrowed funds), `2` (margin funds), or `3` (lending funds). Note that while the trade ID will always be distinct, the order number may be shared across multiple `t` updates if multiple trades were required to fill a limit order. The total fee is `(amount * rate) * fee multiplier`. The date is formatted according to the format string `Y-m-d H:i:s`.   A `t` update representing a purchase of 0.5 ETH at rate 0.03 BTC per ETH using exchange funds with a fee schedule of 0.25% will look like:
   `["t", 12345, "0.03000000", "0.50000000", "0.00250000", 0, 6083059, "0.00000375", "2018-09-08 05:54:09"]`
 
