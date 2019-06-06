@@ -2,8 +2,11 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2019-06-05 Additional fields to channel 1000 o message
+Channel 1000 `o` message has been appended to include the `orderType` field at the end of the response.
+
 ## 2019-06-04 cancelAllOrders trading method added
-This new API method allows users to cancel all open orders or all open orders by currencyPair. 
+This new API method allows users to cancel all open orders or all open orders by currencyPair.
 
 ## 2019-05-09 Additional fields to channel 1000 t message
 Channel 1000 `t` message has been appended to include the total `fee` and `date` at the end of the response respectively. 
