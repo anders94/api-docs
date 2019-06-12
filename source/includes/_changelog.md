@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2019-06-12 Update returnTradeHistory response to reflect new max
+The max number of trades that can be fetched in a single call has been reduced to 1,000.
+
 ## 2019-06-12 Additional fields to channel 1000 o message
 Channel 1000 `o` message has been appended to include the `orderType` field at the end of the response.
 
