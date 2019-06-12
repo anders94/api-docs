@@ -195,7 +195,7 @@ curl "https://poloniex.com/public?command=returnTradeHistory&currencyPair=BTC_ET
     total: '0.07601981' } ]
 ```
 
-Returns the past 200 trades for a given market, or up to 50,000 trades between a range specified in UNIX timestamps by the "start" and "end" GET parameters. Fields include:
+Returns the past 200 trades for a given market, or up to 1,000 trades between a range specified in UNIX timestamps by the "start" and "end" GET parameters. Fields include:
 
 Field | Description
 ------|------------
