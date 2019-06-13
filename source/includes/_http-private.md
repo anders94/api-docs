@@ -264,9 +264,12 @@ curl -X POST \
        timestamp: 1538419390,
        status: 'COMPLETE',
        category: 'adjustment',
-       'adjustmentTitle' => 'FooType',
-       'adjustmentDesc' => 'This is an adjustment for foo reason',
-       'adjustmentHelp' => 'http://linktohelpcenterarticle' } ],
+       adjustmentTitle: 'Stellar Inflation',
+       adjustmentDesc: 'Your Stellar inflation reward for the week of Jun 11, 2019.',
+       adjustmentHelp:
+        'https://poloniex.freshdesk.com/support/solutions/articles/1000278072-stellar-inflation-what-is-it-and-other-frequently-asked-questions' 
+      } 
+    ]
 }
 ```
 
