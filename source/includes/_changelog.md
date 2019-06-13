@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2019-06-13 Add adjustments to returnDepositWithdrawals
+Include special adjustments (e.g. Stellar inflation credits) as part of the returnDepositWithdrawals response.
+
 ## 2019-06-12 Update returnTradeHistory response to reflect new max
 The max number of trades that can be fetched in a single call has been reduced to 1,000.
 
