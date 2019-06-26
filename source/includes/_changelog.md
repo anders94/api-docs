@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2019-06-26 Add currencyToWithdrawAs to withdraw
+Include the `currencyToWithdrawAs` parameter to the withdrawal API call (used to withdraw USDTTRON).
+
 ## 2019-06-13 Add adjustments to returnDepositWithdrawals
 Include special adjustments (e.g. Stellar inflation credits) as part of the returnDepositWithdrawals response.
 
@@ -12,10 +15,10 @@ The max number of trades that can be fetched in a single call has been reduced t
 Channel 1000 `o` message has been appended to include the `orderType` field at the end of the response.
 
 ## 2019-06-04 cancelAllOrders trading method added
-This new API method allows users to cancel all open orders or all open orders by currencyPair. 
+This new API method allows users to cancel all open orders or all open orders by currencyPair.
 
 ## 2019-05-09 Additional fields to channel 1000 t message
-Channel 1000 `t` message has been appended to include the total `fee` and `date` at the end of the response respectively. 
+Channel 1000 `t` message has been appended to include the total `fee` and `date` at the end of the response respectively.
 
 ## 2019-05-08 Additional fields to buy and sell response
 The buy and sell response will now include `currencyPair` and `fee` multiplier.
