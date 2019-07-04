@@ -937,7 +937,7 @@ curl -X POST \
 { response: 'Withdrew 2.0 ETH.' }
 ```
 
-Immediately places a withdrawal for a given currency, with no email confirmation. In order to use this method, withdrawal privilege must be enabled for your API key. Required POST parameters are "currency", "amount", and "address". For withdrawals which support payment IDs, (such as XMR) you may optionally specify "paymentId". To withdraw USDT-TRON (USDT on the TRON network), you should specify `currency=USDT`, and set the additional `currencyToWithdrawAs=USDTTRON` parameter. You do not need to specify "currencyToWithdrawAs" to withdraw any other currency.
+Immediately places a withdrawal for a given currency, with no email confirmation. In order to use this method, withdrawal privilege must be enabled for your API key. Required POST parameters are "currency", "amount", and "address". For withdrawals which support payment IDs, (such as XMR) you may optionally specify "paymentId". To withdraw USDT-ETH or USDT-TRON (USDT on the Ethereum or TRON networks), you should specify `currency=USDT`, and set the additional `currencyToWithdrawAs=USDTETH` or `currencyToWithdrawAs=USDTTRON` parameter. You do not need to specify "currencyToWithdrawAs" to withdraw any other currency.
 
 ## returnFeeInfo
 
