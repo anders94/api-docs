@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2019-07-12 Newly listed USDC/T market IDs
+Add recently listed market IDs to currency pair IDs list
+
 ## 2019-06-26 Add currencyToWithdrawAs to withdraw
 Include the `currencyToWithdrawAs` parameter to the withdrawal API call (used to withdraw USDTTRON).
 
