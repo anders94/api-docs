@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2019-07-12 Newly listed USDC/T market IDs
+Add recently listed market IDs to currency pair IDs list
+
 ## 2019-05-09 Additional fields to channel 1000 t message
 Channel 1000 `t` message has been appended to include the total `fee` and `date` at the end of the response respectively. 
 
