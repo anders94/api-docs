@@ -64,28 +64,28 @@ curl -X POST \
 > Example output:
 
 ```json
-{ '1CR': 
+{ '1CR':
    { available: '0.00000000',
      onOrders: '0.00000000',
      btcValue: '0.00000000' },
-  ABY: 
+  ABY:
    { available: '0.00000000',
      onOrders: '0.00000000',
      btcValue: '0.00000000' },
-  AC: 
+  AC:
    { available: '0.00000000',
      onOrders: '0.00000000',
      btcValue: '0.00000000' },
 ...
-  YIN: 
+  YIN:
    { available: '0.00000000',
      onOrders: '0.00000000',
      btcValue: '0.00000000' },
-  ZEC: 
+  ZEC:
    { available: '0.02380926',
      onOrders: '0.00000000',
      btcValue: '0.00044059' },
-  ZRX: 
+  ZRX:
    { available: '0.00000000',
      onOrders: '0.00000000',
      btcValue: '0.00000000' } }
@@ -182,7 +182,7 @@ curl -X POST \
 > Example output:
 
 ```json
-{ deposits: 
+{ deposits:
    [ { depositNumber: 7397520,
        currency: 'BTC',
        address: '131rdg5Rzn6BFufnnQaHhVa5ZtRU1J2EZR',
@@ -216,7 +216,7 @@ curl -X POST \
        txid: '0xf7e7eeb44edcad14c0f90a5fffb1cbb4b80e8f9652124a0838f6906ca939ccd2',
        timestamp: 1537305507,
        status: 'COMPLETE' } ],
-  withdrawals: 
+  withdrawals:
    [ { withdrawalNumber: 7397527,
        currency: 'ETC',
        address: '0x26419a62055af459d2cd69bb7392f5100b75e304',
@@ -235,7 +235,7 @@ curl -X POST \
        timestamp: 1507908127,
        status: 'COMPLETE: 0xbd4da74e1a0b81c21d056c6f58a5b306de85d21ddf89992693b812bb117eace4',
        ipAddress: '1.2.3.4',
-       paymentID: null 
+       paymentID: null
      },
 ...
      { withdrawalNumber: 11967216,
@@ -246,7 +246,7 @@ curl -X POST \
        timestamp: 1538419390,
        status: 'COMPLETE: 0x52f9e37f29944f20b624df4d7a0ea5a09173e6ea048d49fb05c29585f1d74032',
        ipAddress: '1.2.3.4',
-       paymentID: null 
+       paymentID: null
      },
      { withdrawalNumber: 12017755,
        currency: 'STR',
@@ -257,10 +257,23 @@ curl -X POST \
        status: 'COMPLETE: 2d27ae26fa9c70d6709e27ac94d4ce2fde19b3986926e9f3bfcf3e2d68354ec5',
        ipAddress: '1.2.3.4',
        paymentID: 'MEMOTEXT'
-     } ] }
+     } ],
+  adjustments:
+   [ { currency: 'STR',
+       amount: '2.38291827',
+       timestamp: 1538419390,
+       status: 'COMPLETE',
+       category: 'adjustment',
+       adjustmentTitle: 'Stellar Inflation',
+       adjustmentDesc: 'Your Stellar inflation reward for the week of Jun 11, 2019.',
+       adjustmentHelp:
+        'https://poloniex.freshdesk.com/support/solutions/articles/1000278072-stellar-inflation-what-is-it-and-other-frequently-asked-questions'
+      }
+    ]
+}
 ```
 
-Returns your deposit and withdrawal history within a range window, specified by the "start" and "end" POST parameters, both of which should be given as UNIX timestamps.
+Returns your adjustment, deposit, and withdrawal history within a range window, specified by the "start" and "end" POST parameters, both of which should be given as UNIX timestamps.  Note that only adjustments intended to be shown in the UI will be returned
 
 ### Input Fields
 
@@ -268,6 +281,19 @@ Field | Description
 ------|------------
 start | The start date of the range window in UNIX timestamp format.
 end | The end date of the range window in UNIX timestamp format.
+
+### Adjustment Output Fields
+
+Field | Description
+------|------------
+currency | The currency of this adjustment.
+amount | The total value of this adjustment.
+timestamp | The timestamp in UNIX timestamp format of when this adjustment was credited.
+status | The status of the adjustment (only `COMPLETE`).
+category | Always `adjustment`.
+adjustmentTitle | The type of adjustment.
+adjustmentDesc | A human-readable description of the adjustment.
+adjustmentHelp | A help center link to describe the adjustment.
 
 ### Deposit Output Fields
 
@@ -347,7 +373,7 @@ curl -X POST \
   BTC_BAT: [],
   BTC_BCH: [],
 ...
-  BTC_ETH: 
+  BTC_ETH:
    [ { orderNumber: '514515459658',
        type: 'buy',
        rate: '0.00001000',
@@ -367,7 +393,7 @@ curl -X POST \
        margin: 0 } ],
   BTC_FCT: [],
 ...
-  BTC_SC: 
+  BTC_SC:
    [ { orderNumber: '26422960740',
        type: 'buy',
        rate: '0.00000001',
@@ -466,7 +492,7 @@ curl -X POST \
 > Example output for all markets:
 
 ```json
-{ BTC_BCH: 
+{ BTC_BCH:
    [ { globalTradeID: 394131412,
        tradeID: '5455033',
        date: '2018-10-16 18:05:17',
@@ -488,7 +514,7 @@ curl -X POST \
        orderNumber: '104768179137',
        type: 'sell',
        category: 'exchange' } ],
-  BTC_STR: 
+  BTC_STR:
    [ { globalTradeID: 394127362,
        tradeID: '13536351',
        date: '2018-10-16 17:03:43',
@@ -611,8 +637,8 @@ curl -X POST \
 > Example output:
 
 ```json
-{ result: 
-   { '6071071': 
+{ result:
+   { '6071071':
       { status: 'Open',
         rate: '0.40000000',
         amount: '1.00000000',
@@ -670,7 +696,7 @@ curl -X POST \
 
 ```json
 { orderNumber: '514845991795',
-  resultingTrades: 
+  resultingTrades:
    [ { amount: '3.0',
        date: '2018-10-25 23:03:21',
        rate: '0.0002',
@@ -729,7 +755,7 @@ curl -X POST \
 
 ```json
 { orderNumber: '514845991926',
-  resultingTrades: 
+  resultingTrades:
    [ { amount: '1.0',
        date: '2018-10-25 23:03:21',
        rate: '10.0',
@@ -808,6 +834,51 @@ success | A boolean indication of the success or failure of this operation.
 amount | The remaning unfilled amount that was canceled in this operation.
 message | A human readable description of the result of the action.
 
+## cancelAllOrders
+
+```shell
+# Note: set the nonce to the current milliseconds. For example: date +%s00000
+echo -n "command=cancelAllOrders&nonce=1559587794133" | \
+openssl sha512 -hmac $API_SECRET
+
+curl -X POST \
+     -d "command=cancelAllOrders&nonce=1559587794133" \
+     -H "Key: 7BCLAZQZ-HKLK9K6U-3MP1RNV9-2LS1L33J" \
+     -H "Sign: 2f2caf61...a3bc7818ced466e8f" \
+     https://poloniex.com/tradingApi
+```
+
+> Example output:
+
+```json
+{
+    "success": 1,
+    "message": "Orders canceled",
+    "orderNumbers": [
+        503749,
+        888321,
+        7315825,
+        7316824
+    ]
+}
+```
+
+Cancels all open orders in a given market or, if no market is provided, all open orders in all markets. Optional POST parameter is "currencyPair". If successful, the method will return a success of 1 along with a json array of orderNumbers representing the orders that were canceled. Please note that cancelAllOrders can only be called 1 time per 2 minutes.
+
+### Input Fields
+
+Field | Description
+------|------------
+currencyPair | (optional) The base and quote currency that define a market.
+
+### Output
+
+Field | Description
+------|------------
+success | A boolean indication of the success or failure of this operation.
+message | A human readable description of the result of the action.
+orderNumbers | array of orderNumbers representing the orders that were canceled.
+
 ## moveOrder
 
 ```shell
@@ -866,7 +937,7 @@ curl -X POST \
 { response: 'Withdrew 2.0 ETH.' }
 ```
 
-Immediately places a withdrawal for a given currency, with no email confirmation. In order to use this method, withdrawal privilege must be enabled for your API key. Required POST parameters are "currency", "amount", and "address". For withdrawals which support payment IDs, (such as XMR) you may optionally specify "paymentId".
+Immediately places a withdrawal for a given currency, with no email confirmation. In order to use this method, withdrawal privilege must be enabled for your API key. Required POST parameters are "currency", "amount", and "address". For withdrawals which support payment IDs, (such as XMR) you may optionally specify "paymentId". To withdraw USDT-ETH or USDT-TRON (USDT on the Ethereum or TRON networks), you should specify `currency=USDT`, and set the additional `currencyToWithdrawAs=USDTETH` or `currencyToWithdrawAs=USDTTRON` parameter. You do not need to specify "currencyToWithdrawAs" to withdraw any other currency.
 
 ## returnFeeInfo
 
@@ -919,16 +990,16 @@ curl -X POST \
 > Example output:
 
 ```json
- { exchange: 
+ { exchange:
    { BTC: '0.10000000',
      EOS: '5.18012931',
      ETC: '3.39980734',
      SC: '120.00000000',
      USDC: '23.79999938',
      ZEC: '0.02380926' },
-  margin: 
+  margin:
    { BTC: '0.50000000' },
-  lending: 
+  lending:
    { BTC: '0.14804126',
      ETH: '2.69148073',
      LTC: '1.75862721',
