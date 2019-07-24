@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2019-07-24 Add clientOrderId to private http methods and websocket messages
+Some endpoints now support using a client specified integer identifier which will be returned in http responses and "o", "t", "n" websocket messages.
+
 ## 2019-07-12 Newly listed USDC/T market IDs
 Add recently listed market IDs to currency pair IDs list
 
