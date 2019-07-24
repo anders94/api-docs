@@ -682,11 +682,11 @@ startingAmount | The original order's amount.
 
 ```shell
 # Note: set the nonce to the current milliseconds. For example: date +%s00000
-echo -n "command=buy&currencyPair=BTC_ETH&rate=0.01&amount=1&nonce=154264078495300" | \
+echo -n "command=buy&currencyPair=BTC_ETH&rate=0.01&amount=1&clientOrderId=12345&nonce=154264078495300" | \
 openssl sha512 -hmac $API_SECRET
 
 curl -X POST \
-     -d "command=buy&currencyPair=BTC_ETH&rate=0.01&amount=1&nonce=154264078495300" \
+     -d "command=buy&currencyPair=BTC_ETH&rate=0.01&amount=1&clientOrderId=12345&nonce=154264078495300" \
      -H "Key: 7BCLAZQZ-HKLK9K6U-3MP1RNV9-2LS1L33J" \
      -H "Sign: 2a7849ecf...ae71161c8e9a364e21d9de9" \
      https://poloniex.com/tradingApi
@@ -704,6 +704,7 @@ curl -X POST \
        tradeID: '251834',
        type: 'buy' } ],
   fee: '0.01000000',
+  clientOrderId: '12345'
   currencyPair: 'BTC_ETH' }
 ```
 
@@ -721,6 +722,7 @@ amount | The total amount of minor units offered in this buy order.
 fillOrKill | (optional) Set to "1" if this order should either fill in its entirety or be completely aborted.
 immediateOrCancel | (optional) Set to "1" if this order can be partially or completely filled, but any portion of the order that cannot be filled immediately will be canceled.
 postOnly | (optional) Set to "1" if you want this buy order to only be placed if no portion of it fills immediately.
+clientOrderId | (optional) Integer value used for tracking order across http responses and "o", "n" & "t" web socket messages.
 
 ### Output Fields
 
@@ -736,16 +738,17 @@ tradeID | The identifier for this trade.
 type | Designates a buy or a sell order. (always 'buy' in this case)
 fee | The fee multiplier for this trade.
 currencyPair | The market to which this order belongs.
+clientOrderId | (optional) User specified integer identifier.
 
 ## sell
 
 ```shell
 # Note: set the nonce to the current milliseconds. For example: date +%s00000
-echo -n "command=sell&currencyPair=BTC_ETH&rate=10.0&amount=1&nonce=154264078495300" | \
+echo -n "command=sell&currencyPair=BTC_ETH&rate=10.0&amount=1&clientOrderId=12345&nonce=154264078495300" | \
 openssl sha512 -hmac $API_SECRET
 
 curl -X POST \
-     -d "command=sell&currencyPair=BTC_ETH&rate=10.0&amount=1&nonce=154264078495300" \
+     -d "command=sell&currencyPair=BTC_ETH&rate=10.0&amount=1&clientOrderId=12345&nonce=154264078495300" \
      -H "Key: 7BCLAZQZ-HKLK9K6U-3MP1RNV9-2LS1L33J" \
      -H "Sign: 2a7849ecf...ae71161c8e9a364e21d9de9" \
      https://poloniex.com/tradingApi
@@ -763,6 +766,7 @@ curl -X POST \
        tradeID: '251869',
        type: 'sell' } ],
   fee: '0.01000000',
+  clientOrderId: '12345',
   currencyPair: 'BTC_ETH' }
 ```
 
@@ -780,6 +784,7 @@ amount | The total amount of minor units offered in this sell order.
 fillOrKill | (optional) Set to "1" if this order should either fill in its entirety or be completely aborted.
 immediateOrCancel | (optional) Set to "1" if this order can be partially or completely filled, but any portion of the order that cannot be filled immediately will be canceled.
 postOnly | (optional) Set to "1" if you want this sell order to only be placed if no portion of it fills immediately.
+clientOrderId | (optional) Integer value used for tracking order across "o", "n" & "t" web socket messages.
 
 ### Output Fields
 
@@ -795,6 +800,7 @@ tradeID | The identifier for this trade.
 type | Designates a buy or a sell order. (always 'sell' in this case)
 fee | The fee multiplier for this trade.
 currencyPair | The market to which this order belongs.
+clientOrderId | (optional) User specified integer identifier.
 
 ## cancelOrder
 
@@ -815,6 +821,7 @@ curl -X POST \
 ```json
 { success: 1,
   amount: '50.00000000',
+  clientOrderId: '12345',
   message: 'Order #514845991795 canceled.' }
 ```
 
@@ -833,6 +840,7 @@ Field | Description
 success | A boolean indication of the success or failure of this operation.
 amount | The remaning unfilled amount that was canceled in this operation.
 message | A human readable description of the result of the action.
+clientOrderId | (optional) If clientOrderId exists on the open order it will be returned in the cancelOrder response.
 
 ## cancelAllOrders
 
@@ -851,16 +859,13 @@ curl -X POST \
 > Example output:
 
 ```json
-{
-    "success": 1,
-    "message": "Orders canceled",
-    "orderNumbers": [
-        503749,
-        888321,
-        7315825,
-        7316824
-    ]
-}
+{ "success": 1,
+  "message": "Orders canceled",
+  "orderNumbers": [
+    503749,
+    888321,
+    7315825,
+    7316824 ] }
 ```
 
 Cancels all open orders in a given market or, if no market is provided, all open orders in all markets. Optional POST parameter is "currencyPair". If successful, the method will return a success of 1 along with a json array of orderNumbers representing the orders that were canceled. Please note that cancelAllOrders can only be called 1 time per 2 minutes.
@@ -883,7 +888,7 @@ orderNumbers | array of orderNumbers representing the orders that were canceled.
 
 ```shell
 # Note: set the nonce to the current milliseconds. For example: date +%s00000
-echo -n "command=moveOrder&orderNumber=514851026755&rate=0.00015&nonce=154264078495300" | \
+echo -n "command=moveOrder&orderNumber=514851026755&rate=0.00015&clientOrderId=12345&nonce=154264078495300" | \
 openssl sha512 -hmac $API_SECRET
 
 curl -X POST \
@@ -898,6 +903,7 @@ curl -X POST \
 ```json
 { success: 1,
   orderNumber: '514851232549',
+  clientOrderId: '12345',
   resultingTrades: { BTC_ETH: [] } }
 ```
 
@@ -908,6 +914,7 @@ Cancels an order and places a new one of the same type in a single atomic transa
 Field | Description
 ------|------------
 orderNumber | The identity number of the order to be canceled.
+clientOrderId | (optional) User specified integer identifier to be associated with the new order being placed.
 
 ### Output Fields
 
@@ -916,6 +923,7 @@ Field | Description
 success | A boolean indication of the success or failure of this operation.
 amount | The remaning unfilled amount that was canceled in this operation.
 message | A human readable description of the result of the action.
+clientOrderId | (optional) User specified integer identifier associated with the new order placed.
 
 ## withdraw
 
@@ -937,7 +945,7 @@ curl -X POST \
 { response: 'Withdrew 2.0 ETH.' }
 ```
 
-Immediately places a withdrawal for a given currency, with no email confirmation. In order to use this method, withdrawal privilege must be enabled for your API key. Required POST parameters are "currency", "amount", and "address". For withdrawals which support payment IDs, (such as XMR) you may optionally specify "paymentId". To withdraw USDT-ETH or USDT-TRON (USDT on the Ethereum or TRON networks), you should specify `currency=USDT`, and set the additional `currencyToWithdrawAs=USDTETH` or `currencyToWithdrawAs=USDTTRON` parameter. You do not need to specify "currencyToWithdrawAs" to withdraw any other currency.
+Immediately places a withdrawal for a given currency, with no email confirmation. In order to use this method, withdrawal privilege must be enabled for your API key. Required POST parameters are "currency", "amount", and "address". For withdrawals which support payment IDs, (such as XMR) you may optionally specify "paymentId". To withdraw USDT-TRON (USDT on the TRON network), you should specify `currency=USDT`, and set the additional `currencyToWithdrawAs=USDTTRON` parameter. You do not need to specify "currencyToWithdrawAs" to withdraw any other currency.
 
 ## returnFeeInfo
 
@@ -1129,11 +1137,11 @@ currentMargin | The current margin ratio.
 
 ```shell
 # Note: set the nonce to the current milliseconds. For example: date +%s00000
-echo -n "command=marginBuy&currencyPair=BTC_ETH&rate=0.0035&amount=20&&nonce=154264078495300" | \
+echo -n "command=marginBuy&currencyPair=BTC_ETH&rate=0.0035&amount=20&clientOrderId=12345&nonce=154264078495300" | \
 openssl sha512 -hmac $API_SECRET
 
 curl -X POST \
-     -d "command=marginBuy&currencyPair=BTC_ETH&rate=0.0035&amount=20&nonce=154264078495300" \
+     -d "command=marginBuy&currencyPair=BTC_ETH&rate=0.0035&amount=20&clientOrderId=12345&nonce=154264078495300" \
      -H "Key: 7BCLAZQZ-HKLK9K6U-3MP1RNV9-2LS1L33J" \
      -H "Sign: 2a7849ecf...ae71161c8e9a364e21d9de9" \
      https://poloniex.com/tradingApi
@@ -1144,7 +1152,8 @@ curl -X POST \
 ```json
 { orderNumber: '515007818806',
   resultingTrades: [],
-  message: 'Margin order placed.' }
+  message: 'Margin order placed.',
+  clientOrderId: '12345' }
 ```
 
 Places a margin buy order in a given market. Required POST parameters are "currencyPair", "rate", and "amount". You may optionally specify a maximum lending rate using the "lendingRate" parameter. (the default "lendingRate" value is 0.02 which stands for 2% per day) Note that "rate" * "amount" must be > 0.02 when creating or expanding a market. If successful, the method will return the order number and any trades immediately resulting from your order.
@@ -1157,6 +1166,7 @@ currencyPair | The base and quote currency that define this market.
 rate | The number of base currency units to purchase one quote currency unit.
 lendingRate | The interest rate you are willing to accept per day. (default is 0.02 which stands for 2% per day)
 amount | The amount of currency to buy in minor currency units.
+clientOrderId | (optional) Integer value used for tracking order across http responses as well as "o", "n" & "t" web socket messages.
 
 ### Output Fields
 
@@ -1165,16 +1175,17 @@ Field | Description
 orderNumber | The newly created order number.
 resultingTrades | An array of trades immediately filled by this offer, if any.
 message | A human-readable message summarizing the activity.
+clientOrderId | (optional) Client specified integer identifier.
 
 ## marginSell
 
 ```shell
 # Note: set the nonce to the current milliseconds. For example: date +%s00000
-echo -n "command=marginSell&currencyPair=BTC_ETH&rate=0.0035&amount=20&&nonce=154264078495300" | \
+echo -n "command=marginSell&currencyPair=BTC_ETH&rate=0.0035&amount=20&clientOrderId=12345&nonce=154264078495300" | \
 openssl sha512 -hmac $API_SECRET
 
 curl -X POST \
-     -d "command=marginSell&currencyPair=BTC_ETH&rate=0.0035&amount=20&nonce=154264078495300" \
+     -d "command=marginSell&currencyPair=BTC_ETH&rate=0.0035&amount=20&clientOrderId=12345&nonce=154264078495300" \
      -H "Key: 7BCLAZQZ-HKLK9K6U-3MP1RNV9-2LS1L33J" \
      -H "Sign: 2a7849ecf...ae71161c8e9a364e21d9de9" \
      https://poloniex.com/tradingApi
@@ -1185,7 +1196,8 @@ curl -X POST \
 ```json
 { orderNumber: '515007818812',
   resultingTrades: [],
-  message: 'Margin order placed.' }
+  message: 'Margin order placed.'
+  clientOrderId: '12345' }
 ```
 
 Places a margin sell order in a given market. Required POST parameters are "currencyPair", "rate", and "amount". You may optionally specify a maximum lending rate using the "lendingRate" parameter. (the default "lendingRate" value is 0.02 which stands for 2% per day) Note that "rate" * "amount" must be > 0.02 when creating or expanding a market. If successful, the method will return the order number and any trades immediately resulting from your order.
@@ -1198,6 +1210,7 @@ currencyPair | The base and quote currency that define this market.
 rate | The number of base currency units to purchase one quote currency unit.
 lendingRate | The interest rate you are willing to accept per day. (default is 0.02 which stands for 2% per day)
 amount | The amount of currency to sell in minor currency units.
+clientOrderId | (optional) Integer value used for tracking order across http responses as well as "o", "n" & "t" web socket messages.
 
 ### Output Fields
 
@@ -1206,6 +1219,7 @@ Field | Description
 orderNumber | The newly created order number.
 resultingTrades | An array of trades immediately filled by this offer, if any.
 message | A human-readable message summarizing the activity.
+clientOrderId | (optional) Client specified integer identifier.
 
 ## getMarginPosition
 
