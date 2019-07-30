@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2019-07-29 Updates to clientOrderId documentation
+State clientOrderId is 64 bit integer, and when live, must be unique per account
+
 ## 2019-07-24 Add clientOrderId to private http methods and websocket messages
 Some endpoints now support using a client specified integer identifier which will be returned in http responses and "o", "t", "n" websocket messages.
 
