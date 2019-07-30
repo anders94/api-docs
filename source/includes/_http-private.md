@@ -1170,7 +1170,7 @@ currencyPair | The base and quote currency that define this market.
 rate | The number of base currency units to purchase one quote currency unit.
 lendingRate | The interest rate you are willing to accept per day. (default is 0.02 which stands for 2% per day)
 amount | The amount of currency to buy in minor currency units.
-clientOrderId | (optional) Integer value used for tracking order across http responses as well as "o", "n" & "t" web socket messages.
+clientOrderId | (optional) 64-bit Integer value used for tracking order across http responses as well as "o", "n" & "t" web socket messages. Must be unique for each open order.
 
 ### Output Fields
 
@@ -1179,7 +1179,7 @@ Field | Description
 orderNumber | The newly created order number.
 resultingTrades | An array of trades immediately filled by this offer, if any.
 message | A human-readable message summarizing the activity.
-clientOrderId | (optional) Client specified 64-bit integer identifier, , that must be unique per live order per account.
+clientOrderId | (optional) Client specified 64-bit integer identifier. Must be unique for each open order.
 
 ## marginSell
 
@@ -1214,7 +1214,7 @@ currencyPair | The base and quote currency that define this market.
 rate | The number of base currency units to purchase one quote currency unit.
 lendingRate | The interest rate you are willing to accept per day. (default is 0.02 which stands for 2% per day)
 amount | The amount of currency to sell in minor currency units.
-clientOrderId | (optional) 64 bit Integer value used for tracking order across http responses as well as "o", "n" & "t" web socket messages, , that must be unique per live order per account.
+clientOrderId | (optional) 64 bit Integer value used for tracking order across http responses as well as "o", "n" & "t" web socket messages. Must be unique for each open order.
 
 ### Output Fields
 
@@ -1223,7 +1223,7 @@ Field | Description
 orderNumber | The newly created order number.
 resultingTrades | An array of trades immediately filled by this offer, if any.
 message | A human-readable message summarizing the activity.
-clientOrderId | (optional) 64 bit Client specified integer identifier, that must be unique per live order per account.
+clientOrderId | (optional) 64 bit Client specified integer identifier. Must be unique for each open order.
 
 ## getMarginPosition
 
