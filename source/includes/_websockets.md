@@ -97,7 +97,7 @@ Subsequent messages represent updates to your account. In general, a message con
 
 A given message may contain multiple updates, multiple types of updates, and multiple updates of the same type. There is no ordering guarantee of update types within a single message. Effectively, each message is a record of all of the changes to your account induced by a single action. There are four types of updates, as described below:
 
-* `p` messages represent an acknowledgement that an order is pending. They are in the format `["p", <order number>, <marketID>, "<rate>", "<amount>", "<order type>", "<clientOrderId>"]`. Market IDs may be found in the reference table. The order type is either 0 or 1 (sell or buy).
+* `p` messages represent an acknowledgement that an order is pending. They are in the format `["p", <order number>, <currency pair id>, "<rate>", "<amount>", "<order type>", "<clientOrderId>"]`. Currency pair IDs may be found in the reference table. The order type is either 0 or 1 (sell or buy).
 
 * `b` updates represent an available balance update. They are in the format `["b", <currency id>, "<wallet>", "<amount>"]`. Currency IDs may be found in the reference table, or using the returnCurrencies REST call. The wallet can be `e` (exchange), `m` (margin), or `l` (lending). Thus, a `b` update representing a deduction of 0.06 BTC from the exchange wallet will look like `["b", 28, "e", "-0.06000000"]`.  
 
@@ -121,14 +121,14 @@ A given message may contain multiple updates, multiple types of updates, and mul
 
 * `k` updates represent an update indicating an API order has been killed, due to specified constraints not being matched. A `postOnly` or `fillOrKill` order that doesn't successfully execute will generate a `k` message. `k` messages are in the format `["k", <order number>, "<clientOrderId>"]`.
 
-As mentioned above, a single logical action may cause a message with multiple updates. For instance, placing a limit order to buy ETH using BTC, which is immediately partially fulfilled, will cause an update with 5 parts: a `p` message with the newly placed pending order for the BTC_ETH market, a `b` update with a positive ETH balance (the ETH that was immediately bought), a `b` update with a negative BTC balance update (the BTC removed from the user's funds to pay for the ETH), a `t` update representing the trade in which the order was partially fulfilled, and an `n` update with the new limit order for the rest of the requested ETH.
+As mentioned above, a single logical action may cause a message with multiple updates. For instance, placing a limit order to buy ETH using BTC, which is immediately partially fulfilled, will cause an update with 5 parts: a `p` message with the newly placed pending order for the BTC_ETH market, a `b` update with a positive ETH balance (the ETH that was immediately bought), a `b` update with a negative BTC balance update (the BTC removed from the user's funds to pay for the ETH), a `t` update representing the trade in which the order was partially fulfilled and then the remaining amount becomes open, and an `n` update with the new limit order for the rest of the requested ETH.
 
 Note that many actions do not have explicit notification types, but rather are represented by the underlying trade and balance changes:
 
 * Stop-limit orders immediately cause a `b` notification (that the appropriate balance has been decremented to reserve an asset for the limit order). When they are triggered they cause notifications commensurate with a standard limit order being placed (`n` or `t` updates depending on whether the limit was immediately fulfilled).
 * Margin liquidations cause a notification with `t` updates for whatever trades were performed during the liquidation, and `b` updates for the `m` (margin) wallet balance changes.
 * Accepted loan offers cause a notification with `b` updates for the resulting `l` (lending) wallet balance changes.
-* Self-trades may appear to have inconsistent behavior with account notification order and in `o` updates. This is because in a self-trade, the trader is both the maker AND the taker, and receives relevant messages for both parties.
+* Self-trades generate `o` updates. This is because in a self-trade, the trader is both the maker AND the taker, and receives relevant messages for both parties.
 
 There are currently no notifications of transfers between wallets initiated via the transfers page or the transferBalance trading API call.
 
