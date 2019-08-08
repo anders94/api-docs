@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2019-08-06 "k" and "p" account notifications
+Introducing "k" (killed) and "p" (pending order) channel 1000 websocket account notifications
+
 ## 2019-07-29 Updates to clientOrderId documentation
 State clientOrderId is 64 bit integer, and when live, must be unique per account
 
