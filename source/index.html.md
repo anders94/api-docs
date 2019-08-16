@@ -15,4 +15,7 @@ includes:
   - changelog
 
 search: true
+
+toc_footers:
+ - <a href='https://github.com/poloniex/api-docs'>Check out these docs on Github</a>
 ---
