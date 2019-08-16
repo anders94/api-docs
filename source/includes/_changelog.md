@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2019-08-16 XMR base delisting
+XMR as a base was delisted from poloniex (other currency pairs also delisted)
+
 ## 2019-08-06 "k" and "p" account notifications
 Introducing "k" (killed) and "p" (pending order) channel 1000 websocket account notifications
 
