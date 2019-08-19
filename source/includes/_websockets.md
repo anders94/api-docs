@@ -168,7 +168,7 @@ The `<currency pair id>` is from the [currency pair ID list](?shell#reference).
 ```shell
 ws wss://api2.poloniex.com
 > {"command": "subscribe", "channel": 1003}
-< [1003,null,["2018-11-07 16:26",5804,{"BTC":"3418.409","ETH":"2645.921","XMR":"111.287","USDT":"10832502.689","USDC":"1578020.908"}]]
+< [1003,null,["2018-11-07 16:26",5804,{"BTC":"3418.409","ETH":"2645.921","USDT":"10832502.689","USDC":"1578020.908"}]]
 ```
 
 Subscribe to 24 hour exchange volume statistics. Updates are sent every 20 seconds.
@@ -185,13 +185,13 @@ For example:
 
 `[1003, 1]`
 
-Subsequent responses are exchange volume update sent every 20 seconds. Base currencies are BTC, ETH, XMR, USDT and USDC.
+Subsequent responses are exchange volume update sent every 20 seconds. Base currencies are BTC, ETH, USDT and USDC.
 
 `[ <channel id>, null, [ "<time as YYYY-MM-DD HH:SS>", "<number of users online>", { "<base currency>": "<24 hours volume>", ... } ] ]`
 
 For example
 
-`[ 1003, null, [ "2018-09-30 21:33", 8592, { "BTC": "6482.518", "ETH": "1315.332", "XMR": "179.914", "USDT": "42935638.731", "USDC": "76034823.390" } ] ]`
+`[ 1003, null, [ "2018-09-30 21:33", 8592, { "BTC": "6482.518", "ETH": "1315.332", "USDT": "42935638.731", "USDC": "76034823.390" } ] ]`
 
 ## Heartbeats
 

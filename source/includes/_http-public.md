@@ -74,13 +74,12 @@ curl "https://poloniex.com/public?command=return24hVolume"
   USDC_ETH: { USDC: '72302.27016210', ETH: '357.72884034' },
   totalBTC: '2340.96441558',
   totalETH: '2771.63218462',
-  totalUSDC: '681255.56961992',
-  totalXMR: '267.83601213' }
+  totalUSDC: '681255.56961992' }
 ```
 
 Returns the 24-hour volume for all markets as well as totals for primary currencies.
 
-Primary currencies include `BTC`, `ETH`, `USDT`, `USDC` and `XMR` and show the total amount of those tokens that have traded within the last 24 hours.
+Primary currencies include `BTC`, `ETH`, `USDT`, `USDC` and show the total amount of those tokens that have traded within the last 24 hours.
 
 ## returnOrderBook
 
