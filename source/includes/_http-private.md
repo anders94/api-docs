@@ -719,7 +719,7 @@ amount | The total amount of minor units offered in this buy order.
 fillOrKill | (optional) Set to "1" if this order should either fill in its entirety or be completely aborted.
 immediateOrCancel | (optional) Set to "1" if this order can be partially or completely filled, but any portion of the order that cannot be filled immediately will be canceled.
 postOnly | (optional) Set to "1" if you want this buy order to only be placed if no portion of it fills immediately.
-clientOrderId | (optional) Integer value used for tracking order across http responses and "o", "n" & "t" web socket messages.
+clientOrderId | (optional) 64-bit Integer value used for tracking order across http responses and "o", "n" & "t" web socket messages. Must be unique across all open orders for each account.
 
 ### Output Fields
 
@@ -735,7 +735,7 @@ tradeID | The identifier for this trade.
 type | Designates a buy or a sell order. (always 'buy' in this case)
 fee | The fee multiplier for this trade.
 currencyPair | The market to which this order belongs.
-clientOrderId | (optional) User specified integer identifier.
+clientOrderId | (optional) User specified 64-bit integer identifier.
 
 ## sell
 
@@ -781,7 +781,7 @@ amount | The total amount of minor units offered in this sell order.
 fillOrKill | (optional) Set to "1" if this order should either fill in its entirety or be completely aborted.
 immediateOrCancel | (optional) Set to "1" if this order can be partially or completely filled, but any portion of the order that cannot be filled immediately will be canceled.
 postOnly | (optional) Set to "1" if you want this sell order to only be placed if no portion of it fills immediately.
-clientOrderId | (optional) Integer value used for tracking order across "o", "n" & "t" web socket messages.
+clientOrderId | (optional) 64-bit Integer value used for tracking order across "o", "n" & "t" web socket messages. Must be unique across all open orders for each account.
 
 ### Output Fields
 
@@ -797,7 +797,7 @@ tradeID | The identifier for this trade.
 type | Designates a buy or a sell order. (always 'sell' in this case)
 fee | The fee multiplier for this trade.
 currencyPair | The market to which this order belongs.
-clientOrderId | (optional) User specified integer identifier.
+clientOrderId | (optional) User specified 64-bit integer identifier. 
 
 ## cancelOrder
 
@@ -911,7 +911,7 @@ Cancels an order and places a new one of the same type in a single atomic transa
 Field | Description
 ------|------------
 orderNumber | The identity number of the order to be canceled.
-clientOrderId | (optional) User specified integer identifier to be associated with the new order being placed.
+clientOrderId | (optional) User specified 64-bit integer identifier to be associated with the new order being placed. Must be unique across all open orders for each account.
 
 ### Output Fields
 
@@ -920,7 +920,7 @@ Field | Description
 success | A boolean indication of the success or failure of this operation.
 amount | The remaning unfilled amount that was canceled in this operation.
 message | A human readable description of the result of the action.
-clientOrderId | (optional) User specified integer identifier associated with the new order placed.
+clientOrderId | (optional) User specified 64-bit integer identifier associated with the new order placed.
 
 ## withdraw
 
@@ -1167,7 +1167,7 @@ currencyPair | The base and quote currency that define this market.
 rate | The number of base currency units to purchase one quote currency unit.
 lendingRate | The interest rate you are willing to accept per day. (default is 0.02 which stands for 2% per day)
 amount | The amount of currency to buy in minor currency units.
-clientOrderId | (optional) Integer value used for tracking order across http responses as well as "o", "n" & "t" web socket messages.
+clientOrderId | (optional) 64-bit Integer value used for tracking order across http responses as well as "o", "n" & "t" web socket messages. Must be unique across all open orders for each account.
 
 ### Output Fields
 
@@ -1176,7 +1176,7 @@ Field | Description
 orderNumber | The newly created order number.
 resultingTrades | An array of trades immediately filled by this offer, if any.
 message | A human-readable message summarizing the activity.
-clientOrderId | (optional) Client specified 64-bit integer identifier, , that must be unique per live order per account.
+clientOrderId | (optional) Client specified 64-bit integer identifier.
 
 ## marginSell
 
@@ -1211,7 +1211,7 @@ currencyPair | The base and quote currency that define this market.
 rate | The number of base currency units to purchase one quote currency unit.
 lendingRate | The interest rate you are willing to accept per day. (default is 0.02 which stands for 2% per day)
 amount | The amount of currency to sell in minor currency units.
-clientOrderId | (optional) 64 bit Integer value used for tracking order across http responses as well as "o", "n" & "t" web socket messages, , that must be unique per live order per account.
+clientOrderId | (optional) 64 bit Integer value used for tracking order across http responses as well as "o", "n" & "t" web socket messages. Must be unique across all open orders for each account.
 
 ### Output Fields
 
@@ -1220,7 +1220,7 @@ Field | Description
 orderNumber | The newly created order number.
 resultingTrades | An array of trades immediately filled by this offer, if any.
 message | A human-readable message summarizing the activity.
-clientOrderId | (optional) 64 bit Client specified integer identifier, that must be unique per live order per account.
+clientOrderId | (optional) 64 bit Client specified integer identifier.
 
 ## getMarginPosition
 
