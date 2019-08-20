@@ -410,10 +410,7 @@ curl -X POST \
        total: '0.00200000',
        date: '2018-10-23 17:42:00',
        margin: 0 } ],
-  BTC_SNT: [],
-...
-  XMR_NXT: [],
-  XMR_ZEC: [] }
+  BTC_SNT: [] }
 ```
 
 Returns your open orders for a given market, specified by the "currencyPair" POST parameter, e.g. "BTC_ETH". Set "currencyPair" to "all" to return open orders for all markets.

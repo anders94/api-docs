@@ -97,6 +97,8 @@ Subsequent messages represent updates to your account. In general, a message con
 
 A given message may contain multiple updates, multiple types of updates, and multiple updates of the same type. There is no ordering guarantee of update types within a single message. Effectively, each message is a record of all of the changes to your account induced by a single action. There are four types of updates, as described below:
 
+* `p` messages represent an acknowledgement that an order is pending. They are in the format `["p", <order number>, <currency pair id>, "<rate>", "<amount>", "<order type>", "<clientOrderId>"]`. Currency pair IDs may be found in the reference table. The order type is either 0 or 1 (sell or buy).
+
 * `b` updates represent an available balance update. They are in the format `["b", <currency id>, "<wallet>", "<amount>"]`. Currency IDs may be found in the reference table, or using the returnCurrencies REST call. The wallet can be `e` (exchange), `m` (margin), or `l` (lending). Thus, a `b` update representing a deduction of 0.06 BTC from the exchange wallet will look like `["b", 28, "e", "-0.06000000"]`.  
 
 * `n` updates represent a newly created limit order. They are in the format `["n", <currency pair id>, <order number>, <order type>, "<rate>", "<amount>", "<date>", "<original amount ordered>" "<clientOrderId>"]`. Currency pair IDs are described here, the order type can either be `0` (sell) or `1` (buy), the date is formatted according to the format string `Y-m-d H:i:s` and clientOrderId will be a string if present or `null`. Thus, an `n` update representing a complete unfilled buy order for 2 ETH at rate 0.03 BTC per ETH with a clientOrderId of 12345 will look like `["n", 148, 6083059, 1, "0.03000000", "2.00000000", "2018-09-08 04:54:09", "2.00000000", "12345"]`.  
@@ -117,13 +119,16 @@ A given message may contain multiple updates, multiple types of updates, and mul
 * `t` updates represent a trade notification. They are in the format `["t", <trade ID>, "<rate>", "<amount>", "<fee multiplier>", <funding type>, <order number>, <total fee>, <date>, "<clientOrderId>"]`. The fee multiplier is the fee schedule applied to the trade (for instance, if a trade had a trading fee of 0.25%, the fee multiplier will be '0.00250000'). The funding type represents the funding used for the trade, and may be `0` (exchange wallet), `1` (borrowed funds), `2` (margin funds), or `3` (lending funds). Note that while the trade ID will always be distinct, the order number may be shared across multiple `t` updates if multiple trades were required to fill a limit order. The total fee is `(amount * rate) * fee multiplier`. The date is formatted according to the format string `Y-m-d H:i:s` and clientOrder will be a string if present or `null`. A `t` update representing a purchase of 0.5 ETH at rate 0.03 BTC per ETH using exchange funds with a fee schedule of 0.25% and a clientOrderId of 12345 will look like:
   `["t", 12345, "0.03000000", "0.50000000", "0.00250000", 0, 6083059, "0.00000375", "2018-09-08 05:54:09", "12345"]`
 
-As mentioned above, a single logical action may cause a message with multiple updates. For instance, placing a limit order to buy ETH using BTC, which is immediately partially fulfilled, will cause an update with 4 parts: a `b` update with a positive ETH balance (the ETH that was immediately bought), a `b` update with a negative BTC balance update (the BTC removed from the user's funds to pay for the ETH), a `t` update representing the trade in which the order was partially fulfilled, and an `n` update with the new limit order for the rest of the requested ETH.
+* `k` updates represent an update indicating an API order has been killed, due to specified constraints not being matched. A `postOnly` or `fillOrKill` order that doesn't successfully execute will generate a `k` message. `k` messages are in the format `["k", <order number>, "<clientOrderId>"]`.
+
+As mentioned above, a single logical action may cause a message with multiple updates. For instance, placing a limit order to buy ETH using BTC, which is immediately partially fulfilled, will cause an update with 5 parts: a `p` message with the newly placed pending order for the BTC_ETH market, a `b` update with a positive ETH balance (the ETH that was immediately bought), a `b` update with a negative BTC balance update (the BTC removed from the user's funds to pay for the ETH), a `t` update representing the trade in which the order was partially fulfilled and then the remaining amount becomes open, and an `n` update with the new limit order for the rest of the requested ETH.
 
 Note that many actions do not have explicit notification types, but rather are represented by the underlying trade and balance changes:
 
 * Stop-limit orders immediately cause a `b` notification (that the appropriate balance has been decremented to reserve an asset for the limit order). When they are triggered they cause notifications commensurate with a standard limit order being placed (`n` or `t` updates depending on whether the limit was immediately fulfilled).
 * Margin liquidations cause a notification with `t` updates for whatever trades were performed during the liquidation, and `b` updates for the `m` (margin) wallet balance changes.
 * Accepted loan offers cause a notification with `b` updates for the resulting `l` (lending) wallet balance changes.
+* Self-trades generate `o` updates. This is because in a self-trade, the trader is both the maker AND the taker, and receives relevant messages for both parties.
 
 There are currently no notifications of transfers between wallets initiated via the transfers page or the transferBalance trading API call.
 
@@ -163,7 +168,7 @@ The `<currency pair id>` is from the [currency pair ID list](?shell#reference).
 ```shell
 ws wss://api2.poloniex.com
 > {"command": "subscribe", "channel": 1003}
-< [1003,null,["2018-11-07 16:26",5804,{"BTC":"3418.409","ETH":"2645.921","XMR":"111.287","USDT":"10832502.689","USDC":"1578020.908"}]]
+< [1003,null,["2018-11-07 16:26",5804,{"BTC":"3418.409","ETH":"2645.921","USDT":"10832502.689","USDC":"1578020.908"}]]
 ```
 
 Subscribe to 24 hour exchange volume statistics. Updates are sent every 20 seconds.
@@ -180,13 +185,13 @@ For example:
 
 `[1003, 1]`
 
-Subsequent responses are exchange volume update sent every 20 seconds. Base currencies are BTC, ETH, XMR, USDT and USDC.
+Subsequent responses are exchange volume update sent every 20 seconds. Base currencies are BTC, ETH, USDT and USDC.
 
 `[ <channel id>, null, [ "<time as YYYY-MM-DD HH:SS>", "<number of users online>", { "<base currency>": "<24 hours volume>", ... } ] ]`
 
 For example
 
-`[ 1003, null, [ "2018-09-30 21:33", 8592, { "BTC": "6482.518", "ETH": "1315.332", "XMR": "179.914", "USDT": "42935638.731", "USDC": "76034823.390" } ] ]`
+`[ 1003, null, [ "2018-09-30 21:33", 8592, { "BTC": "6482.518", "ETH": "1315.332", "USDT": "42935638.731", "USDC": "76034823.390" } ] ]`
 
 ## Heartbeats
 

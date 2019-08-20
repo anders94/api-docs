@@ -2,8 +2,14 @@
 
 Recent changes and additions to the Poloniex API.
 
-## 2019-07-30 Updates to clientOrderId documentation
+## 2019-08-20 Updates to clientOrderId documentation
 Fixed newly introduced grammar issues for clientOrderID docs
+
+## 2019-08-16 XMR base delisting
+XMR as a base was delisted, along with other pairs. See tweet for details - https://twitter.com/Poloniex/status/1162061407858417664
+
+## 2019-08-06 "k" and "p" account notifications
+Introducing "k" (killed) and "p" (pending order) channel 1000 websocket account notifications
 
 ## 2019-07-29 Updates to clientOrderId documentation
 State clientOrderId is 64 bit integer, and when live, must be unique per account
