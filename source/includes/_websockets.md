@@ -259,7 +259,7 @@ For example:
 
 Subsequent responses are updates to the book and trades
 
-`[ <channel id>, <sequence number>, [ ["o", <1 for buy 0 for sell>, "<price>", "<size>"], ["o", <1 for buy 0 for sell>, "<price>", "<size>"], ["t", "<trade id>", <1 for buy 0 for sell>, "<price>", "<size>", <timestamp>] ] ... ]`
+`[ <channel id>, <sequence number>, [ ["o", <1 for bid 0 for ask>, "<price>", "<size>"], ["o", <1 for bid 0 for ask>, "<price>", "<size>"], ["t", "<trade id>", <1 for buy 0 for sell>, "<price>", "<size>", <timestamp>] ] ... ]`
 
 For example
 
