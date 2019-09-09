@@ -249,7 +249,7 @@ Or
 
 `{ "command": "subscribe", "channel": "BTC_BTS" }`
 
-The first response is the initial dump of the book
+The first response is the initial dump of the book. **NOTE**: An "i" message can occur after the initial subscription under certain circumstances. When this occurs the client is required to **reset** the state of the price aggregated book.
 
 `[ <channel id>, <sequence number>, [ [ "i", { "currencyPair": "<currency pair name>", "orderBook": [ { "<lowest ask price>": "<lowest ask size>", "<next ask price>": "<next ask size>", ... }, { "<highest bid price>": "<highest bid size>", "<next bid price>": "<next bid size>", ... } ] } ] ] ]`
 
