@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2019-10-15 Currency delistings
+Delisting Pascal (PASC), Steem (STEEM), Navcoin (NAV), GameCredits (GAME), LBRY Credits (LBC), and Clams (CLAM).
+
 ## 2019-08-20 Updates to clientOrderId documentation
 Fixed newly introduced grammar issues for clientOrderID docs
 
