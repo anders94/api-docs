@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2019-11-12 TRX Listing
+Listing of Tron (TRX) and the folowing markets BTC_TRX, USDC_TRX and USDT_TRX.
+
 ## 2019-10-15 Currency delistings
 Delisting Pascal (PASC), Steem (STEEM), Navcoin (NAV), GameCredits (GAME), LBRY Credits (LBC), and Clams (CLAM).
 
