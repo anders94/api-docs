@@ -822,13 +822,14 @@ curl -X POST \
   message: 'Order #514845991795 canceled.' }
 ```
 
-Cancels an order you have placed in a given market. Required POST parameter are "currencyPair" and "orderNumber". If successful, the method will return a success of 1.
+Cancels an order you have placed in a given market. Requires exactly one of "orderNumber" or "clientOrderId" POST parameters. If successful, the method will return a success of 1.
 
 ### Input Fields
 
 Field | Description
 ------|------------
-orderNumber | The identity number of the order to be canceled.
+orderNumber | (Optional) The identity number of the order to be canceled.
+clientOrderId | (Optional) User specified 64-bit integer identifier.
 
 ### Output Fields
 
