@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2019-11-19 Cancel order by clientOrderId
+This change allows users to cancel both pending and open orders by `clientOrderId`.
+
 ## 2019-11-12 TRX Listing
 Listing of Tron (TRX) and the folowing markets BTC_TRX, USDC_TRX and USDT_TRX.
 
