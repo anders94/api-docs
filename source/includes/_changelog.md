@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2019-12-30 Currency delistings
+Delisting DigiByte (DGB), Factom (FCT), MaidSafeCoin (MAID), Omni (OMNI), Primecoin (XPM), Vertcoin (VTC) and Viacoin (VIA)
+
 ## 2019-11-19 Cancel order by clientOrderId
 This change allows users to cancel both pending and open orders by `clientOrderId`.
 
