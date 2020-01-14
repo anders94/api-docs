@@ -968,6 +968,8 @@ curl -X POST \
 ```json
 { makerFee: '0.00100000',
   takerFee: '0.00200000',
+  marginMakerFee: '0.00100000',
+  marginTakerFee: '0.00200000',
   thirtyDayVolume: '106.08463302',
   nextTier: 500000 }
 ```
@@ -980,6 +982,8 @@ Field | Description
 ------|------------
 makerFee | The fee you pay when your order executes after having not matched when it was initially placed.
 takerFee | The fee you pay when your order matches an existing offer.
+marginMakerFee | The fee you pay when your margin order executes after having not matched when it was initially placed.
+marginTakerFee | The fee you pay when your margin order matches an existing offer.
 thirtyDayVolume | The total trading volume for your account.
 nextTier | The volume necessary to reach the next fee tier.
 
