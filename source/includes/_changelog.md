@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-01-16 ETHBNT Listing
+Listing of Bancor ETH Smart Token Relay (ETHBNT) and the folowing market BTC_ETHBNT.
+
 ## 2019-12-30 Currency delistings
 Delisting DigiByte (DGB), Factom (FCT), MaidSafeCoin (MAID), Omni (OMNI), Primecoin (XPM), Vertcoin (VTC) and Viacoin (VIA)
 
