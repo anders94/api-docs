@@ -413,8 +413,8 @@ curl -X POST \
   BTC_SNT: [] }
 ```
 
-Returns your open orders for a given market, specified by the "currencyPair" POST parameter, e.g. "BTC_ETH". Set "currencyPair" to "all" to return open orders for all markets.
-
+Returns your open orders for a given market, specified by the "currencyPair" POST parameter, e.g. "BTC_ETH". Set "currencyPair" to "all" to return open orders for all markets. 
+Note that the "startingAmount" is not the order placement amount but it is the starting amount of the open order in the book, which excludes any amount that was immediately filled before the order is posted on the book.
 ### Input Fields
 
 Field | Description
