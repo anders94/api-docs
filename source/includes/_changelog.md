@@ -2,6 +2,8 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-01-22 Clarifications to returnOpenOrders doc
+
 ## 2020-01-16 ETHBNT Listing
 Listing of Bancor ETH Smart Token Relay (ETHBNT) and the folowing market BTC_ETHBNT.
 
