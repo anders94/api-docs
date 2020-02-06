@@ -2,10 +2,13 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-02-06 BTT Listing
+Listing of BitTorrent Token (BTT) and the following markets BTC_BTT, USDT_BTT and TRX_BTT.
+
 ## 2020-01-22 Clarifications to returnOpenOrders doc
 
 ## 2020-01-16 ETHBNT Listing
-Listing of Bancor ETH Smart Token Relay (ETHBNT) and the folowing market BTC_ETHBNT.
+Listing of Bancor ETH Smart Token Relay (ETHBNT) and the following market BTC_ETHBNT.
 
 ## 2019-12-30 Currency delistings
 Delisting DigiByte (DGB), Factom (FCT), MaidSafeCoin (MAID), Omni (OMNI), Primecoin (XPM), Vertcoin (VTC) and Viacoin (VIA)
@@ -14,7 +17,7 @@ Delisting DigiByte (DGB), Factom (FCT), MaidSafeCoin (MAID), Omni (OMNI), Primec
 This change allows users to cancel both pending and open orders by `clientOrderId`.
 
 ## 2019-11-12 TRX Listing
-Listing of Tron (TRX) and the folowing markets BTC_TRX, USDC_TRX and USDT_TRX.
+Listing of Tron (TRX) and the following markets BTC_TRX, USDC_TRX and USDT_TRX.
 
 ## 2019-10-15 Currency delistings
 Delisting Pascal (PASC), Steem (STEEM), Navcoin (NAV), GameCredits (GAME), LBRY Credits (LBC), and Clams (CLAM).
