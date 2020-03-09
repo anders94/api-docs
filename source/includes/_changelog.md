@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-03-05 STEEM Listing
+Listing of STEEM Token (STEEM) and the following markets BTC_STEEM and TRX_STEEM.
+
 ## 2020-02-13 WIN Listing
 Listing of WINk Token (WIN) and the following markets USDT_WIN and TRX_WIN.
 
