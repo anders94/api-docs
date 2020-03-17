@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-03-12 LINK Listing
+Listing of Chainlink Token (LINK) and the following markets BTC_LINK and TRX_LINK.
+
 ## 2020-03-05 STEEM Listing
 Listing of STEEM Token (STEEM) and the following markets BTC_STEEM and TRX_STEEM.
 
