@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-03-24 XTZ Listing
+Listing of Tezos (XTZ) and the following markets BTC_XTZ, USDT_XTZ, and TRX_XTZ.
+
 ## 2020-03-12 LINK Listing
 Listing of Chainlink Token (LINK) and the following markets BTC_LINK and TRX_LINK.
 
