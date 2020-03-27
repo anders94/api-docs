@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-03-26 BULL, BEAR, TRXBULL, TRXBEAR Listings
+Listing of 3x Long and Short leveraged tokens (BULL, BEAR, TRXBULL, TRXBEAR) and the following markets USDT_BULL, USDT_BEAR, USDT_TRXBULL, and USDT_TRXBEAR.
+
 ## 2020-03-24 XTZ Listing
 Listing of Tezos (XTZ) and the following markets BTC_XTZ, USDT_XTZ, and TRX_XTZ.
 
