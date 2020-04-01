@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-03-31 PAX and USDJ Listings
+Listing of Paxos Standard (PAX) and USDJ (USDJ) tokens and the following markets USDJ_TRX, USDJ_BTC, USDT_USDJ, USDT_PAX, PAX_ETH, and PAX_BTC.
+
 ## 2020-03-26 BULL, BEAR, TRXBULL, TRXBEAR Listings
 Listing of 3x Long and Short leveraged tokens (BULL, BEAR, TRXBULL, TRXBEAR) and the following markets USDT_BULL, USDT_BEAR, USDT_TRXBULL, and USDT_TRXBEAR.
 
