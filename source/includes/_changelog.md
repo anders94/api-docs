@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-04-02 SNX Listing
+Listing of Synthetix Network Token (SNX) and the following markets BTC_SNX, USDT_SNX, and TRX_SNX.
+
 ## 2020-03-31 PAX and USDJ Listings
 Listing of Paxos Standard (PAX) and USDJ (USDJ) tokens and the following markets USDJ_TRX, USDJ_BTC, USDT_USDJ, USDT_PAX, PAX_ETH, and PAX_BTC.
 
