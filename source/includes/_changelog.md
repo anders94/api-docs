@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-04-09 BSVBEAR and BSVBULL Listings
+Listing of 3x Long and Short Bitcoin SV leveraged tokens (BSVBEAR and BSVBULL) and the following markets USDT_BSVBEAR and USDT_BSVBULL.
+
 ## 2020-04-02 SNX Listing
 Listing of Synthetix Network Token (SNX) and the following markets BTC_SNX, USDT_SNX, and TRX_SNX.
 
