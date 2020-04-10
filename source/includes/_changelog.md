@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-04-10 MATIC Listing
+Listing of Matic Network token (MATIC) and the following markets BTC_MATIC, USDT_MATIC, and TRX_MATIC.
+
 ## 2020-04-09 BSVBEAR and BSVBULL Listings
 Listing of 3x Long and Short Bitcoin SV leveraged tokens (BSVBEAR and BSVBULL) and the following markets USDT_BSVBEAR and USDT_BSVBULL.
 
