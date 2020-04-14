@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-04-14 BCHBEAR, BCHBULL, ETHBEAR, ETHBULL Listings
+Listing of 3x Long and Short leveraged tokens (BCHBEAR, BCHBULL, ETHBEAR, ETHBULL) and the following markets USDT_BCHBEAR, USDT_BCHBULL, USDT_ETHBEAR, and USDT_ETHBULL.
+
 ## 2020-04-10 MATIC Listing
 Listing of Matic Network token (MATIC) and the following markets BTC_MATIC, USDT_MATIC, and TRX_MATIC.
 
