@@ -2,6 +2,12 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-04-23 BVOL and IBVOL Listings
+Listing of Bitcoin Volatility and Inverse Bitcoin Volatility tokens (BVOL, IBVOL) and the following markets USDT_BVOL and USDT_IBVOL.
+
+## 2020-04-17 MKR Listing
+Listing of Maker token (MKR) and the following markets BTC_MKR and USDT_MKR.
+
 ## 2020-04-14 BCHBEAR, BCHBULL, ETHBEAR, ETHBULL Listings
 Listing of 3x Long and Short leveraged tokens (BCHBEAR, BCHBULL, ETHBEAR, ETHBULL) and the following markets USDT_BCHBEAR, USDT_BCHBULL, USDT_ETHBEAR, and USDT_ETHBULL.
 
