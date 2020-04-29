@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-04-29 DAI Listings
+Listing of Dai stablecoin (DAI) and the following markets DAI_BTC, DAI_ETH, and USDT_DAI.
+
 ## 2020-04-23 BVOL and IBVOL Listings
 Listing of Bitcoin Volatility and Inverse Bitcoin Volatility tokens (BVOL, IBVOL) and the following markets USDT_BVOL and USDT_IBVOL.
 
