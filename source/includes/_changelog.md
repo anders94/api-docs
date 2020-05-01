@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-05-01 NEO Listings
+Listing of Neo (NEO) and the following markets BTC_NEO, USDT_NEO, and TRX_NEO.
+
 ## 2020-04-29 DAI Listings
 Listing of Dai stablecoin (DAI) and the following markets DAI_BTC, DAI_ETH, and USDT_DAI.
 
