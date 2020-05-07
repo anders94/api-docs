@@ -2,6 +2,12 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-05-07 JST Listings
+Listing of Just (JST) and the following markets USDT_JST and TRX_JST.
+
+## 2020-05-05 SWFTC Listings
+Listing of SwftCoin (SWFTC) and the following markets BTC_SWFTC, USDT_SWFTC, and TRX_SWFTC.
+
 ## 2020-05-01 NEO Listings
 Listing of Neo (NEO) and the following markets BTC_NEO, USDT_NEO, and TRX_NEO.
 
