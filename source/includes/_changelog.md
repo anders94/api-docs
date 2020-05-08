@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-05-08 New Markets for BCN, STEEM, LINK, BTT
+Added the following markets USDT_BCN, USDT_STEEM, USDT_LINK, and USDJ_BTT.
+
 ## 2020-05-08 FXC Listings
 Listing of Flexacoin (FXC) and the following markets BTC_FXC, USDT_FXC, and TRX_FXC.
 
