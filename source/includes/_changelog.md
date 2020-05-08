@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-05-08 FXC Listings
+Listing of Flexacoin (FXC) and the following markets BTC_FXC, USDT_FXC, and TRX_FXC.
+
 ## 2020-05-07 JST Listings
 Listing of Just (JST) and the following markets USDT_JST and TRX_JST.
 
