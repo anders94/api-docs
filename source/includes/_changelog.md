@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-05-20 Delisting Markets for BTC_BCN ad BTC_BTT
+Delisted the following markets BTC_BCN and BTC_BTT.
+
 ## 2020-05-15 EOSBEAR, EOSBULL, LINKBEAR, LINKBULL, XRPBEAR, XRPBULL Listings
 Listing of EOS, Chainlink, and Ripple 3x Long and Short leveraged tokens (EOSBEAR, EOSBULL, LINKBEAR, LINKBULL, XRPBEAR, XRPBULL) and the following markets USDT_EOSBEAR, USDT_EOSBULL, USDT_LINKBEAR, USDT_LINKBULL, USDT_XRPBEAR, and USDT_XRPBULL.
 
