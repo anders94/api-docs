@@ -43,13 +43,6 @@ Private HTTP endpoints are authenticated using HMAC-SHA512 signed POST request.
 
 Private HTTP endpoints also require a nonce, which must be an integer greater than the previous nonce used. There is no requirement that nonces increase by a specific amount, so the current epoch time in milliseconds is an easy choice. As each API key has its own nonce tracking, using a different key for each client process can greatly simplify nonce management.
 
-### Deposit
-
-Transfer some funds into your account.
-
-- Deposit cryptocurrency you already own
-- Tokenize some USDC using a traditional bank account and deposit the USDC into Poloniex. More information available at <a href="https://support.usdc.circle.com/hc/en-us">the USDC Help Center</a>.
-
 ### Minimize Latency
 
 If you will be performing high-frequency trading, you may wish to locate your bots as close to our servers as possible. As Poloniex uses Cloudflare for all requests, you can minimize network latency by positioning your client near the Cloudflare gateway in Ashburn, VA, United States. You can identify which Cloudflare gateway your client is accessing by running this command on the same machine as your bot:
