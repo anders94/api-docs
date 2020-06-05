@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-06-05 BNB, BUSD, MDT Listings
+Listing of Binance Coin (BNB), Binance USD (BUSD), and Measurable Data Token (MDT) and the following markets BNB_BTC, USDT_BNB, USDT_BUSD, TRX_BNB, BUSD_BNB, BUSD_BTC, BTC_MDT, USDT_MDT, and TRX_MDT.
+
 ## 2020-05-22 CHR Listings
 Listing of Chromia (CHR) and the following markets BTC_CHR, USDT_CHR, and TRX_CHR.
 

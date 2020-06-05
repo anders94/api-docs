@@ -45,6 +45,7 @@ ID | Currency
 22 | BLK
 23 | BLOCK
 24 | BLU
+343 | BNB
 25 | BNS
 305 | BNT
 26 | BONES
@@ -60,6 +61,7 @@ ID | Currency
 323 | BULL
 33 | BURN
 34 | BURST
+324 | BUSD
 346 | BVOL
 35 | C2
 36 | CACH
@@ -195,6 +197,7 @@ ID | Currency
 338 | MATIC
 129 | MAX
 130 | MCN
+359 | MDT
 131 | MEC
 132 | METH
 328 | MKR
@@ -357,6 +360,7 @@ This is a list of IDs for currency pairs. They serve as the channel IDs for pric
 
 Id | Currency Pair
 ---|--------------
+336 | BNB_BTC
 177 | BTC_ARDR
 253 | BTC_ATOM
 324 | BTC_AVA
@@ -390,6 +394,7 @@ Id | Currency Pair
 50 | BTC_LTC
 229 | BTC_MANA
 295 | BTC_MATIC
+342 | BTC_MDT
 302 | BTC_MKR
 309 | BTC_NEO
 64 | BTC_NMC
@@ -418,6 +423,8 @@ Id | Currency Pair
 277 | BTC_XTZ
 178 | BTC_ZEC
 192 | BTC_ZRX
+340 | BUSD_BNB
+341 | BUSD_BTC
 306 | DAI_BTC
 307 | DAI_ETH
 211 | ETH_BAT
@@ -430,6 +437,7 @@ Id | Currency Pair
 284 | PAX_BTC
 285 | PAX_ETH
 326 | TRX_AVA
+339 | TRX_BNB
 271 | TRX_BTT
 335 | TRX_CHR
 267 | TRX_ETH
@@ -437,6 +445,7 @@ Id | Currency Pair
 316 | TRX_JST
 276 | TRX_LINK
 297 | TRX_MATIC
+344 | TRX_MDT
 311 | TRX_NEO
 292 | TRX_SNX
 274 | TRX_STEEM
@@ -475,11 +484,13 @@ Id | Currency Pair
 299 | USDT_BCHBULL
 320 | USDT_BCN
 280 | USDT_BEAR
+337 | USDT_BNB
 293 | USDT_BSVBEAR
 294 | USDT_BSVBULL
 121 | USDT_BTC
 270 | USDT_BTT
 281 | USDT_BULL
+338 | USDT_BUSD
 304 | USDT_BVOL
 334 | USDT_CHR
 308 | USDT_DAI
@@ -505,6 +516,7 @@ Id | Currency Pair
 123 | USDT_LTC
 231 | USDT_MANA
 296 | USDT_MATIC
+343 | USDT_MDT
 303 | USDT_MKR
 310 | USDT_NEO
 124 | USDT_NXT
