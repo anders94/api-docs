@@ -51,3 +51,5 @@ If you will be performing high-frequency trading, you may wish to locate your bo
 
 Cloudflare’s Ashburn data center will return a “colo” field of “IAD”. If you get a different “colo” value, you can look up the location at <a href="https://www.cloudflarestatus.com" target="_blank">https://www.cloudflarestatus.com</a>.
 
+Note: We will soon be relocating our infrastructure out of the US and into Ireland. We suggest that you move your bots as close as possible to the Dublin region to minimize latency. <a href="https://support.poloniex.com/hc/articles/360048766614">Learn more</a> about our upcoming maintenance.
+
