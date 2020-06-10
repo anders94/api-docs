@@ -736,6 +736,8 @@ type | Designates a buy or a sell order. (always 'buy' in this case)
 fee | The fee multiplier for this trade.
 currencyPair | The market to which this order belongs.
 clientOrderId | (optional) User specified 64-bit integer identifier.
+tokenFee | The total fee paid, if any, using a token to pay fees.
+tokenFeeCurrency | The currency used to pay fees if any token fee was used.
 
 ## sell
 
@@ -798,6 +800,8 @@ type | Designates a buy or a sell order. (always 'sell' in this case)
 fee | The fee multiplier for this trade.
 currencyPair | The market to which this order belongs.
 clientOrderId | (optional) User specified 64-bit integer identifier. 
+tokenFee | The total fee paid, if any, using a token to pay fees.
+tokenFeeCurrency | The currency used to pay fees if any token fee was used.
 
 ## cancelOrder
 

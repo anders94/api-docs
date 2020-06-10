@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-06-10 Token Fee API changes
+Added output fields to the buy and sell API commands to support fee payments using tokens.
+
 ## 2020-06-05 BNB, BUSD, MDT Listings
 Listing of Binance Coin (BNB), Binance USD (BUSD), and Measurable Data Token (MDT) and the following markets BNB_BTC, USDT_BNB, USDT_BUSD, TRX_BNB, BUSD_BNB, BUSD_BTC, BTC_MDT, USDT_MDT, and TRX_MDT.
 
