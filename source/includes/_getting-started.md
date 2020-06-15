@@ -45,11 +45,8 @@ Private HTTP endpoints also require a nonce, which must be an integer greater th
 
 ### Minimize Latency
 
-If you will be performing high-frequency trading, you may wish to locate your bots as close to our servers as possible. As Poloniex uses Cloudflare for all requests, you can minimize network latency by positioning your client near the Cloudflare gateway in Ashburn, VA, United States. You can identify which Cloudflare gateway your client is accessing by running this command on the same machine as your bot:
+If you will be performing high-frequency trading, you may wish to locate your bots as close to our servers as possible. As Poloniex uses Cloudflare for all requests, you can minimize network latency by positioning your client near the Cloudflare gateway in Dublin, Ireland. You can identify which Cloudflare gateway your client is accessing by running this command on the same machine as your bot:
 
 ```curl -s https://www.cloudflare.com/cdn-cgi/trace```
 
-Cloudflare’s Ashburn data center will return a “colo” field of “IAD”. If you get a different “colo” value, you can look up the location at <a href="https://www.cloudflarestatus.com" target="_blank">https://www.cloudflarestatus.com</a>.
-
-Note: We will soon be relocating our infrastructure out of the US and into Ireland. We suggest that you move your bots as close as possible to the Dublin region to minimize latency. <a href="https://support.poloniex.com/hc/articles/360048766614">Learn more</a> about our upcoming maintenance.
-
+Cloudflare’s Dublin data center will return a “colo” field of “DUB”. If you get a different “colo” value, you can look up the location at <a href="https://www.cloudflarestatus.com" target="_blank">https://www.cloudflarestatus.com</a>.
