@@ -951,7 +951,7 @@ Immediately places a withdrawal for a given currency, with no email confirmation
 
 For withdrawals which support payment IDs, (such as XMR) you may optionally specify "paymentId". 
 
-For currencies where there are multiple networks to choose from you need to specify the param: `currencyToWithdrawAs`. For USDT use currencyToWithdrawAs=USDTTRON or USDTETH. The default for USDT is Omni which is used if currencyToWithdrawAs is not specified.
+For currencies where there are multiple networks to choose from (currently only USDT) you need to specify the param: `currencyToWithdrawAs`. For USDT use currencyToWithdrawAs=USDTTRON or USDTETH. The default for USDT is Omni which is used if currencyToWithdrawAs is not specified.
 
 ## returnFeeInfo
 

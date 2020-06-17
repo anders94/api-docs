@@ -2,6 +2,12 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-06-17 COMP Listings
+Listing of Compound Governance Token (COMP) and the following markets USDT_COMP and ETH_COMP.
+
+## 2020-06-12 BCHC Listing
+Listing of BitCherry (BCHC) and the following market USDT_BCHC.
+
 ## 2020-06-10 Token Fee API changes
 Added output fields to the buy and sell API commands to support fee payments using tokens.
 
