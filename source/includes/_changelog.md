@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-06-19 XFIL and CUSDT Listings
+Listing of Filecoin IOU pre-mainnet trading (XFIL) and Compound USDT (CUSDT) and the following markets BTC_XFIL, USDT_XFIL, and USDT_CUSDT.
+
 ## 2020-06-17 COMP Listings
 Listing of Compound Governance Token (COMP) and the following markets USDT_COMP and ETH_COMP.
 
