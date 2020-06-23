@@ -1,11 +1,13 @@
 version: 0.2
 phases:
   install:
+    runtime-versions:
+      node: 12
+      ruby: 2.7
     commands:
       - echo "install phase..."
       - apt-get update
-      - apt-get install -y jq python-pip nodejs
-      - pip install awscli
+      - apt-get install -y jq
   build:
     commands:
       - echo "build phase..."
