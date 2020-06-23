@@ -4,9 +4,9 @@ set -ex
 # builds the site and release to an s3 bucket, invalidate cloudfront distribution
 
 # build site
-gem install bundler
-bundle install
-bundle exec middleman build --clean
+gem install bundler -v 1.16.6
+bundle _1.16.6_ install
+bundle _1.16.6_ exec middleman build --clean
 
 # sync site to s3 bucket
 cd build
