@@ -2,6 +2,9 @@
 
 Recent changes and additions to the Poloniex API.
 
+## 2020-06-24 LEND, REN, LRC, and BAL Listings
+Listing of Aave (Lend), Ren (REN), Loopring (LRC), and Balancer (BAL) tokens and the following markets BTC_LEND, USDT_LEND, BTC_REN, USDT_REN, BTC_LRC, USDT_LRC, USDT_BAL, and ETH_BAL.
+
 ## 2020-06-19 XFIL and CUSDT Listings
 Listing of Filecoin IOU pre-mainnet trading (XFIL) and Compound USDT (CUSDT) and the following markets BTC_XFIL, USDT_XFIL, and USDT_CUSDT.
 
